@@ -13,7 +13,8 @@ var roleBuilder = {
 	    }
 
 	    if(creep.memory.building) {
-	        var targets = creep.room.find(FIND_CONSTRUCTION_SITES);
+	        var targets = creep.room.find(FIND_CONSTRUCTION_SITES, {
+			filter: (structure) => {extension}});
 			targets.sort((a,b) => (a.progressTotal - a.progress) - (b.progressTotal - b.progress));
 			// console.log(targets);
             if(targets.length) {
