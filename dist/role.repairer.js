@@ -14,13 +14,13 @@ var roleRepairer = {
 
 	    if(creep.memory.repairing) {
 	        var targets = creep.room.find(FIND_STRUCTURES, { 
-				filter: object => object.hits < 1000
+				filter: object => object.hits < 30000
 			});
 			targets.sort((a,b) => a.hitsMax - b.hitsMax);
-			console.log(targets[0]);
+			console.log(targets[1]);
 			if(targets.length > 0) {
-				if(creep.repair(targets[0]) == ERR_NOT_IN_RANGE) {
-					creep.moveTo(targets[0], {visualizePathStyle: {stroke: '#7DDA58'}});
+				if(creep.repair(targets[1]) == ERR_NOT_IN_RANGE) {
+					creep.moveTo(targets[1], {visualizePathStyle: {stroke: '#7DDA58'}});
 					creep.say('Repairing...');
 				}
 			}
