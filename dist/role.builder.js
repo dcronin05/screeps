@@ -20,7 +20,7 @@ var roleBuilder = {
             if(targets.length) {
 				if(creep.build(targets[0]) == ERR_NOT_IN_RANGE) {
 					creep.moveTo(targets[0], {visualizePathStyle: {stroke: '#FE9900'}});
-					creep.say('Building...')
+					creep.say('🚧')
 				}
 			}
 		}
@@ -28,7 +28,7 @@ var roleBuilder = {
 	        var sources = creep.room.find(FIND_SOURCES);
             if(creep.harvest(sources[0]) == ERR_NOT_IN_RANGE) {
                 creep.moveTo(sources[0], {visualizePathStyle: {stroke: '#FFDE59'}});
-				creep.say('Harvesting...');
+				creep.say('🔄');
             }
 	    }
 	}
