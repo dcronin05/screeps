@@ -57,7 +57,7 @@ module.exports.loop = function () {
         Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,MOVE,MOVE,MOVE], newName, 
             {memory: {role: 'upgrader'}});
     }
-    if(builders.length < 5 && Game.spawns['Spawn1'].energy >= 300) {
+    if(builders.length < 10 && Game.spawns['Spawn1'].energy >= 300) {
         var newName = 'Builder' + Game.time;
         console.log('Spawning new builder: ' + newName);
         Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,MOVE,MOVE,MOVE], newName, 
