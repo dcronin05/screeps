@@ -31,7 +31,7 @@ module.exports.loop = function () {
     }
 
     if(Game.time % 10 == 0) {
-        console.log('Current CPU usage: ' + Game.cpu.getUsed());
+        // console.log('Current CPU usage: ' + Game.cpu.getUsed());
         var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
         console.log('Harvesters: ' + harvesters.length);
         var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
