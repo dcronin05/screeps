@@ -51,19 +51,19 @@ module.exports.loop = function () {
     else if(repairers.length < 2 && Game.spawns['Spawn1'].energy >= 300) {
         var newName = 'Repairer' + Game.time;
         console.log('Spawning new repairer: ' + newName);
-        Game.spawns['Spawn1'].spawnCreep([WORK,WORK,CARRY,CARRY,MOVE], newName, 
+        Game.spawns['Spawn1'].spawnCreep([WORK,WORK,CARRY,MOVE], newName, 
             {memory: {role: 'repairer'}});
     }
     else if(upgraders.length < 2 && Game.spawns['Spawn1'].energy >= 300) {
         var newName = 'Upgrader' + Game.time;
         console.log('Spawning new upgrader: ' + newName);
-        Game.spawns['Spawn1'].spawnCreep([WORK,WORK,CARRY,CARRY,MOVE], newName, 
+        Game.spawns['Spawn1'].spawnCreep([WORK,WORK,CARRY,MOVE], newName, 
             {memory: {role: 'upgrader'}});
     }
     else if(builders.length < 10 && Game.spawns['Spawn1'].energy >= 300) {
         var newName = 'Builder' + Game.time;
         console.log('Spawning new builder: ' + newName);
-        Game.spawns['Spawn1'].spawnCreep([WORK,WORK,CARRY,CARRY,MOVE], newName, 
+        Game.spawns['Spawn1'].spawnCreep([WORK,WORK,CARRY,MOVE], newName, 
             {memory: {role: 'builder'}});
     }
     
