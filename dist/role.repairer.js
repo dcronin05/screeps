@@ -19,14 +19,14 @@ var roleRepairer = {
 			targets.sort((a,b) => a.hitsMax - b.hitsMax);
 			if(targets.length > 0) {
 				if(creep.repair(targets[0]) == ERR_NOT_IN_RANGE) {
-					creep.moveTo(targets[0], {visualizePathStyle: {stroke: '#ffffff'}});
+					creep.moveTo(targets[0], {visualizePathStyle: {stroke: '#7DDA58'}});
 				}
 			}
 			else {
 				var targets = creep.room.find(FIND_CONSTRUCTION_SITES);
             	if(targets.length) {
                 	if(creep.build(targets[0]) == ERR_NOT_IN_RANGE) {
-                    	creep.moveTo(targets[0], {visualizePathStyle: {stroke: '#jjjjjj'}});
+                    	creep.moveTo(targets[0], {visualizePathStyle: {stroke: '#FE9900'}});
                 	}
           		}
 			}
@@ -34,7 +34,7 @@ var roleRepairer = {
 	    else {
 	        var sources = creep.room.find(FIND_SOURCES);
             if(creep.harvest(sources[1]) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(sources[1], {visualizePathStyle: {stroke: '#ffaa00'}});
+                creep.moveTo(sources[1], {visualizePathStyle: {stroke: '#FFDE59'}});
             }
 	    }
 	}
