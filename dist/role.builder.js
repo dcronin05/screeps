@@ -16,7 +16,7 @@ var roleBuilder = {
 	        var targets = creep.room.find(FIND_CONSTRUCTION_SITES);
 			targets.sort((a,b) => (a.progressTotal - a.progress) - (b.progressTotal - b.progress));
             if(targets.length) {
-				for(var target in targets[0]) {
+				for(var target in targets) {
 					console.log(target.name);
 					if(target.structureType) {
 						if(creep.build(target) == ERR_NOT_IN_RANGE) {
