@@ -17,7 +17,7 @@ var roleRepairer = {
 				filter: object => object.hits < 30000
 			});
 			targets.sort((a,b) => a.hitsMax - b.hitsMax);
-			console.log("Repairing " + targets[2].structureType);
+			console.log("Repairing " + targets[1].structureType);
 			if(targets.length > 0) {
 				if(creep.repair(targets[2]) == ERR_NOT_IN_RANGE) {
 					creep.moveTo(targets[2], {visualizePathStyle: {stroke: '#7DDA58'}});
