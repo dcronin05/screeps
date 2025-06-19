@@ -20,6 +20,7 @@ var roleRepairer = {
 			if(targets.length > 0) {
 				if(creep.repair(targets[0]) == ERR_NOT_IN_RANGE) {
 					creep.moveTo(targets[0], {visualizePathStyle: {stroke: '#7DDA58'}});
+					creep.say('Moving to repair');
 				}
 			}
 			else {
