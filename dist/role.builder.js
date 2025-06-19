@@ -17,11 +17,15 @@ var roleBuilder = {
 			targets.sort((a,b) => (a.progressTotal - a.progress) - (b.progressTotal - b.progress));
 			console.log(targets[0]);
             if(targets.length) {
-                if(creep.build(targets[0]) == ERR_NOT_IN_RANGE) {
-                    creep.moveTo(targets[0], {visualizePathStyle: {stroke: '#jjjjjj'}});
-                }
-            }
-	    }
+				for(var target in targets[0]) {
+					if(target.structureType != STRUCTURE_WALL) {
+						if(creep.build(target) == ERR_NOT_IN_RANGE) {
+							creep.moveTo(target, {visualizePathStyle: {stroke: '#jjjjjj'}});
+						}
+					}
+            	}
+	    	}
+		}
 	    else {
 	        var sources = creep.room.find(FIND_SOURCES);
             if(creep.harvest(sources[0]) == ERR_NOT_IN_RANGE) {
