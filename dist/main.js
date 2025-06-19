@@ -42,7 +42,7 @@ module.exports.loop = function () {
         console.log('Repairers: ' + repairers.length);
     }
     
-    if(harvesters.length < 5 && Game.spawns['Spawn1'].energy >= 300) {
+    if(harvesters.length < 3 && Game.spawns['Spawn1'].energy >= 300) {
         var newName = 'Harvester' + Game.time;
         console.log('Spawning new harvester: ' + newName);
         Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,CARRY,CARRY,MOVE], newName, 
@@ -81,15 +81,15 @@ module.exports.loop = function () {
         if(creep.memory.role == 'harvester') {
             roleHarvester.run(creep);
         }
-        // if(creep.memory.role == 'upgrader') {
-        //     roleUpgrader.run(creep);
-        // }
-        // if(creep.memory.role == 'builder') {
-        //     roleBuilder.run(creep);
-        // }
-        // if(creep.memory.role == 'repairer') {
-        //     roleRepairer.run(creep);
-        // }
+        if(creep.memory.role == 'upgrader') {
+            roleUpgrader.run(creep);
+        }
+        if(creep.memory.role == 'builder') {
+            roleBuilder.run(creep);
+        }
+        if(creep.memory.role == 'repairer') {
+            roleRepairer.run(creep);
+        }
         else { roleBuilder.run(creep); }
     }
 }
