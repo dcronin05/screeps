@@ -17,8 +17,8 @@ var roleBuilder = {
 			targets.sort((a,b) => (a.progressTotal - a.progress) - (b.progressTotal - b.progress));
             if(targets.length) {
 				for(var target in targets[0]) {
+					console.log(target.structureType);
 					if(target.structureType) {
-						console.log(target.structureType);
 						if(creep.build(target) == ERR_NOT_IN_RANGE) {
 							creep.moveTo(target, {visualizePathStyle: {stroke: '#jjjjjj'}});
 						}
