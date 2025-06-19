@@ -15,10 +15,10 @@ var roleBuilder = {
 	    if(creep.memory.building) {
 	        var targets = creep.room.find(FIND_CONSTRUCTION_SITES);
 			targets.sort((a,b) => (a.progressTotal - a.progress) - (b.progressTotal - b.progress));
-			console.log(targets[0]);
             if(targets.length) {
 				for(var target in targets[0]) {
 					if(target.structureType != STRUCTURE_WALL) {
+						console.log(target);
 						if(creep.build(target) == ERR_NOT_IN_RANGE) {
 							creep.moveTo(target, {visualizePathStyle: {stroke: '#jjjjjj'}});
 						}
