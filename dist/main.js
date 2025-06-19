@@ -35,7 +35,15 @@ module.exports.loop = function () {
     console.log('Upgraders: ' + upgraders.length);
     var builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
     console.log('Builders: ' + builders.length);
+    var repairers = _.filter(Game.creeps, (creep) => creep.memory.role == 'repairer');
+    console.log('Repairers: ' + repairers.length);
 
+    if(repairers.length < 2 && Game.spawns['Spawn1'].energy >= 200) {
+        var newName = 'Repairer' + Game.time;
+        console.log('Spawning new repairer: ' + newName);
+        Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,MOVE], newName, 
+            {memory: {role: 'repairer'}});
+    }
     if(harvesters.length < 5 && Game.spawns['Spawn1'].energy >= 200) {
         var newName = 'Harvester' + Game.time;
         console.log('Spawning new harvester: ' + newName);
