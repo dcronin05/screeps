@@ -29,19 +29,19 @@ module.exports.loop = function () {
             console.log('Clearing non-existing creep memory:', name);
         }
     }
-
+    var builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
+    var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader')
+    var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
+    var repairers = _.filter(Game.creeps, (creep) => creep.memory.role == 'repairer');
+    
     if(Game.time % 10 == 0) {
-        // console.log('Current CPU usage: ' + Game.cpu.getUsed());
-        var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
+        console.log('Current CPU usage: ' + Game.cpu.getUsed());
         console.log('Harvesters: ' + harvesters.length);
-        var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
         console.log('Upgraders: ' + upgraders.length);
-        var builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
         console.log('Builders: ' + builders.length);
-        var repairers = _.filter(Game.creeps, (creep) => creep.memory.role == 'repairer');
         console.log('Repairers: ' + repairers.length);
     }
-
+    
     if(repairers.length < 2 && Game.spawns['Spawn1'].energy >= 300) {
         var newName = 'Repairer' + Game.time;
         console.log('Spawning new repairer: ' + newName);
