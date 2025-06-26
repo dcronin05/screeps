@@ -5,7 +5,7 @@ var roleRepairer = require('role.repairer');
 
 module.exports.loop = function () {
 
-    var hostiles = Game.rooms['W33S23'].find(FIND_HOSTILE_CREEPS);
+    var hostiles = Game.rooms['E45N49'].find(FIND_HOSTILE_CREEPS);
     if (hostiles.length > 0) {
         Game.rooms['E45N49'].controller.activateSafeMode();
     }
