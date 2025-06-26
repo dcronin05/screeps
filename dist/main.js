@@ -7,7 +7,7 @@ module.exports.loop = function () {
 
     var hostiles = Game.rooms['W33S23'].find(FIND_HOSTILE_CREEPS);
     if (hostiles.length > 0) {
-        Game.rooms['W33S23'].controller.activateSafeMode();
+        Game.rooms['E45N49'].controller.activateSafeMode();
     }
 
     var tower = Game.getObjectById('816f04ea47e6b2526c7104d1');
