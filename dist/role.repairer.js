@@ -14,7 +14,7 @@ var roleRepairer = {
 	        var targets = creep.room.find(FIND_STRUCTURES, { 
 				filter: object => (object.structureType == "extension" || object.structureType == "road") != 0
 			});
-			targets.sort((a,b) => a.hits - b.hits);
+			targets.sort((b,a) => a.hits - b.hits);
 			if(Game.time % 10 == 0) {
 				console.log("Repairing " + targets[2].structureType + " with ID: " + targets[2].id);
 			}
