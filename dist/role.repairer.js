@@ -12,7 +12,7 @@ var roleRepairer = {
 
 	    if(creep.memory.repairing) {
 	        var targets = creep.room.find(FIND_STRUCTURES, { 
-				filter: object => (object.hitsMax - object.hits) != 0
+				filter: object => (object.structureType == "extension" || object.structureType == "road") != 0
 			});
 			targets.sort((b,a) => a.hits - b.hits);
 			if(Game.time % 10 == 0) {
