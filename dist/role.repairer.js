@@ -11,9 +11,7 @@ var roleRepairer = {
 	    }
 
 	    if(creep.memory.repairing) {
-	        var targets = creep.room.find(FIND_STRUCTURES, { 
-				filter: object => object.hits < 30000
-			});
+	        var targets = creep.room.find(FIND_STRUCTURES);
 			targets.sort((a,b) => a.hits - b.hits);
 			if(Game.time % 10 == 0) {
 				console.log("Repairing " + targets[2].structureType + " with ID: " + targets[2].id);
