@@ -11,7 +11,7 @@ var roleRepairer = {
 	    }
 
 	    if(creep.memory.repairing) {
-	        var targets = creep.room.find(FIND_STRUCTURES { 
+	        var targets = creep.room.find(FIND_STRUCTURES, { 
 				filter: object => (object.hitsMax - object.hits) != 0
 			});
 			targets.sort((b,a) => a.hits - b.hits);
