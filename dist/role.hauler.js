@@ -21,13 +21,11 @@ var roleHauler = {
             });
             if(targets.length > 0) {
                 for (var target of targets) {
-                    while (target.structureType == STRUCTURE_TOWER) {
-                        if (creep.transfer(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                            creep.moveTo(target, {visualizePathStyle: {stroke: '#7DDA58'}});
-                                                    }
-                        if (target.store.getFreeCapacity(RESOURCE_ENERGY) == 0) {
-                            break; // Stop transferring if the tower is full
-                        }
+                    if (creep.transfer(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                        creep.moveTo(target, {visualizePathStyle: {stroke: '#7DDA58'}});
+                    }
+                    if (target.store.getFreeCapacity(RESOURCE_ENERGY) == 0) {
+                        break; // Stop transferring if the tower is full
                     }
                 }
 
