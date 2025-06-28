@@ -34,12 +34,6 @@ var roleHauler = {
                                     }
             }
         } else {
-            var tomb = creep.pos.findClosestByPath(FIND_TOMBSTONES);
-            while (tomb) {
-                    if (creep.withdraw(tomb, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                    creep.moveTo(tomb, {visualizePathStyle: {stroke: '#FFDE59'}});
-                                    }
-            };
 
             var dropped_energy = creep.pos.findClosestByPath(FIND_DROPPED_RESOURCES)
             if (dropped_energy) {
@@ -48,11 +42,19 @@ var roleHauler = {
                                     }
             }
 
+            var tomb = creep.pos.findClosestByPath(FIND_TOMBSTONES);
+            while (tomb) {
+                    if (creep.withdraw(tomb, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                    creep.moveTo(tomb, {visualizePathStyle: {stroke: '#FFDE59'}});
+                                    }
+            };
+
             var containers = creep.room.find(FIND_STRUCTURES, {
                 filter: (structure) => {
                     return (structure.structureType == STRUCTURE_CONTAINER)
                 }
             });
+
             if (containers.length > 0) {
                 for (var container of containers) {
                     if (container.store[RESOURCE_ENERGY] > 0) {
