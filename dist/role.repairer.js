@@ -13,7 +13,7 @@ var roleRepairer = {
 	    if(creep.memory.repairing) {
 	        var targets = creep.room.find(FIND_STRUCTURES, {
 				filter: object => (
-					(object.structureType == "extension" || object.structureType == "road") 
+					(object.structureType == "extension" || object.structureType == "road" || object.structureType == "tower" || object.structureType == "container" || object.structureType == "spawn") 
 					&& object.hits < object.hitsMax
 				)
 			});
