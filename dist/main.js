@@ -55,7 +55,7 @@ module.exports.loop = function () {
         Game.spawns['Spawn1'].spawnCreep([WORK,WORK,WORK,CARRY,MOVE,MOVE,MOVE,MOVE], newName, 
             {memory: {role: 'harvester'}});
     }
-    else if(repairers.length < 2 && Game.spawns['Spawn1'].energy >= 300) {
+    else if(repairers.length < 1 && Game.spawns['Spawn1'].energy >= 300) {
         var newName = 'Repairer' + Game.time;
         if(Game.time % 20 == 0) {
             console.log('Spawning new repairer: ' + newName);
