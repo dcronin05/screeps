@@ -81,12 +81,13 @@ module.exports.loop = function () {
         }
         Game.spawns['Spawn1'].spawnCreep([WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE], newName, 
             {memory: {role: 'builder'}});
-    } else if(haulers.length < 5 && Game.spawns['Spawn1'].energy >= 200) {
+    } 
+    else if(haulers.length < 5 && Game.spawns['Spawn1'].energy >= 200) {
         var newName = 'Hauler' + Game.time;
         if(Game.time % 20 == 0) {
             console.log('Spawning new hauler: ' + newName);
         }
-        Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,MOVE,MOVE], newName, 
+        Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,MOVE], newName, 
             {memory: {role: 'hauler'}});
     };
     
