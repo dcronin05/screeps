@@ -82,7 +82,7 @@ module.exports.loop = function () {
         Game.spawns['Spawn1'].spawnCreep([WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE], newName, 
             {memory: {role: 'builder'}});
     } 
-    else if(haulers.length < 5 && Game.spawns['Spawn1'].energy >= 200) {
+    else if(haulers.length < 5 && Game.spawns['Spawn1'].energy >= 100) {
         var newName = 'Hauler' + Game.time;
         if(Game.time % 20 == 0) {
             console.log('Spawning new hauler: ' + newName);
