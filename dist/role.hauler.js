@@ -49,7 +49,7 @@ var roleHauler = {
 
             var dropped_energy = creep.pos.findClosestByPath(FIND_DROPPED_RESOURCES)
             if (dropped_energy) {
-                if (creep.pickup(dropped_energy) == ERR_NOT_IN_RANGE) {
+                while (creep.pickup(dropped_energy) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(dropped_energy, {visualizePathStyle: {stroke: '#FFDE59'}});
                     creep.say('🧺🔄');
                 }
