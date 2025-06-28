@@ -38,14 +38,14 @@ var roleHauler = {
         } else {
             var tomb = creep.pos.findClosestByPath(FIND_TOMBSTONES);
             while (tomb) {
-                                if (creep.withdraw(tomb, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                    if (creep.withdraw(tomb, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(tomb, {visualizePathStyle: {stroke: '#FFDE59'}});
                                     }
             };
 
             var dropped_energy = creep.pos.findClosestByPath(FIND_DROPPED_RESOURCES)
             if (dropped_energy) {
-                while (creep.pickup(dropped_energy) == ERR_NOT_IN_RANGE) {
+                if (creep.pickup(dropped_energy) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(dropped_energy, {visualizePathStyle: {stroke: '#FFDE59'}});
                                     }
             }
