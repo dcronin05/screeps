@@ -10,7 +10,7 @@ module.exports.loop = function () {
         Game.rooms['E45N49'].controller.activateSafeMode();
     }
 
-    var tower = Game.getObjectById('816f04ea47e6b2526c7104d1');
+    var tower = Game.getObjectById('685f42f9d9ec222e6c3f9ee1');
     
     if(tower) {
         var closestDamagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
