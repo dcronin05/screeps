@@ -66,7 +66,7 @@ module.exports.loop = function () {
         Game.spawns['Spawn1'].spawnCreep([CARRY,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE], newName, 
             {memory: {role: 'hauler'}});
     }
-    else if(repairers.length < 1 && Game.spawns['Spawn1'].energy >= 300) {
+    else if(repairers.length < 0 && Game.spawns['Spawn1'].energy >= 300) {
         var newName = 'Repairer' + Game.time;
         if(Game.time % 20 == 0) {
             console.log('Spawning new repairer: ' + newName);
@@ -111,9 +111,9 @@ module.exports.loop = function () {
         if(creep.memory.role == 'builder') {
             roleBuilder.run(creep);
         }
-        if(creep.memory.role == 'repairer') {
-            roleRepairer.run(creep);
-        }
+        // if(creep.memory.role == 'repairer') {
+        //     roleRepairer.run(creep);
+        // }
         if(creep.memory.role == 'hauler') {
             roleHauler.run(creep);
         }
