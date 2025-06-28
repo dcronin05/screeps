@@ -17,7 +17,7 @@ var roleRepairer = {
 					&& object.hits < object.hitsMax
 				)
 			});
-			targets.sort((a,b) => a.hits - b.hits);
+			targets.sort((a,b) => a.hits / b.hits < .9);
 			if(Game.time % 10 == 0) {
 				console.log("Repairing " + targets[2].structureType + " with ID: " + targets[2].id);
 			};
