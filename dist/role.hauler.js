@@ -38,6 +38,14 @@ var roleHauler = {
                 }
             }
         } else {
+            var tomb = creep.room.find(FIND_TOMBSTONES);
+            if (tomb) {
+                if (creep.withdraw(tomb[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                    creep.moveTo(tomb[0], {visualizePathStyle: {stroke: '#FFDE59'}});
+                    creep.say('🧺🔄');
+                }
+            };
+            
             var dropped_energy = creep.pos.findClosestByPath(FIND_DROPPED_RESOURCES)
             if (dropped_energy) {
                 if (creep.pickup(dropped_energy) == ERR_NOT_IN_RANGE) {
