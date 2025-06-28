@@ -18,7 +18,7 @@ var roleRepairer = {
 				)
 			});
 			targets.sort((b,a) => (a.hitsMax / a.hits) - (b.hitsMax / b.hits));
-			if(Game.time % 10 == 0) {
+			if(Game.time % 2 == 0) {
 				console.log("Repairing " + targets[0].structureType + " with ID: " + targets[0].id + " with hits: " + targets[0].hits + " out of " + targets[0].hitsMax);
 			};
 			if(targets.length > 0) {
