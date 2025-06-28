@@ -11,6 +11,7 @@ var roleHauler = {
 	    }
 
         if(creep.memory.hauling) {
+            creep.say('🚚 hauling');
             var targets = creep.room.find(FIND_STRUCTURES, {
                     filter: (structure) => {
                         return (structure.structureType == STRUCTURE_TOWER ||
