@@ -88,6 +88,7 @@ module.exports.loop = function () {
         }
         Game.spawns['Spawn1'].spawnCreep([CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE], newName, 
             {memory: {role: 'hauler'}});
+    };
     
     if(Game.spawns['Spawn1'].spawning) { 
         var spawningCreep = Game.creeps[Game.spawns['Spawn1'].spawning.name];
@@ -114,4 +115,4 @@ module.exports.loop = function () {
         }
         // roleBuilder.run(creep);
     }
-}
+};
