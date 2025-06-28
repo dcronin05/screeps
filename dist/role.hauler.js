@@ -11,7 +11,6 @@ var roleHauler = {
 	    }
 
         if(creep.memory.hauling) {
-            creep.say('🚚 hauling');
             var targets = creep.room.find(FIND_STRUCTURES, {
                     filter: (structure) => {
                         return (structure.structureType == STRUCTURE_TOWER ||
@@ -20,6 +19,7 @@ var roleHauler = {
                             structure.store.getFreeCapacity(RESOURCE_ENERGY) > 0;
                     }
             });
+            creep.say(targets);
             if(targets.length > 0) {
                 for (var target of targets) {
                     while (target.structureType == STRUCTURE_TOWER) {
@@ -40,7 +40,7 @@ var roleHauler = {
             }
         } else {
             var dropped_energy = creep.pos.findClosestByPath(FIND_DROPPED_ENERGY)
-            creep.say('finding energy');
+            creep.say(dropped_energy);
             if (dropped_energy) {
                 if (creep.pickup(dropped_energy) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(dropped_energy, {visualizePathStyle: {stroke: '#FFDE59'}});
