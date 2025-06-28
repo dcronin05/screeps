@@ -40,7 +40,7 @@ var roleHauler = {
         } else {
             var tomb = creep.pos.findClosestByPath(FIND_TOMBSTONES);
             creep.say(tomb);
-            if (tomb) {
+            while (tomb) {
                 if (creep.withdraw(tomb[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(tomb[0], {visualizePathStyle: {stroke: '#FFDE59'}});
                     creep.say('🧺🔄');
