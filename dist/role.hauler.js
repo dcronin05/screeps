@@ -24,8 +24,7 @@ var roleHauler = {
                     while (target.structureType == STRUCTURE_TOWER) {
                         if (creep.transfer(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                             creep.moveTo(target, {visualizePathStyle: {stroke: '#7DDA58'}});
-                            creep.say('🚚');
-                        }
+                                                    }
                         if (target.store.getFreeCapacity(RESOURCE_ENERGY) == 0) {
                             break; // Stop transferring if the tower is full
                         }
@@ -34,25 +33,21 @@ var roleHauler = {
 
                 if(creep.transfer(targets[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(targets[0], {visualizePathStyle: {stroke: '#7DDA58'}});
-                    creep.say('🚚');
-                }
+                                    }
             }
         } else {
             var tomb = creep.pos.findClosestByPath(FIND_TOMBSTONES);
             while (tomb) {
-                creep.say('🪦');
-                if (creep.withdraw(tomb, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                                if (creep.withdraw(tomb, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(tomb, {visualizePathStyle: {stroke: '#FFDE59'}});
-                    creep.say('🧺🔄');
-                }
+                                    }
             };
 
             var dropped_energy = creep.pos.findClosestByPath(FIND_DROPPED_RESOURCES)
             if (dropped_energy) {
                 while (creep.pickup(dropped_energy) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(dropped_energy, {visualizePathStyle: {stroke: '#FFDE59'}});
-                    creep.say('🧺🔄');
-                }
+                                    }
             }
         }
     }
@@ -73,8 +68,7 @@ var roleHauler = {
 	//         var sources = creep.room.find(FIND_SOURCES);
     //         if(creep.harvest(sources[1]) == ERR_NOT_IN_RANGE) {
     //             creep.moveTo(sources[1], {visualizePathStyle: {stroke: '#FFDE59'}});
-	// 			creep.say('🧺🔄');
-    //         }
+	// 			    //         }
 	//     }
 	// }
 };

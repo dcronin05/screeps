@@ -24,16 +24,14 @@ var roleRepairer = {
 			if(targets.length > 0) {
 				if(creep.repair(targets[0]) == ERR_NOT_IN_RANGE) {
 					creep.moveTo(targets[0], {visualizePathStyle: {stroke: '#7DDA58'}});
-					creep.say('🚧');
-				}
+									}
 			}
 			else {
 				var targets = creep.room.find(FIND_CONSTRUCTION_SITES);
             	if(targets.length && targets[0].structureType != "container") {
                 	if(creep.build(targets[0]) == ERR_NOT_IN_RANGE) {
                     	creep.moveTo(targets[0], {visualizePathStyle: {stroke: '#FE9900'}});
-						creep.say('🏗️');
-                	}
+						                	}
           		}
 			}
 	    }
@@ -41,8 +39,7 @@ var roleRepairer = {
 	        var sources = creep.room.find(FIND_SOURCES);
             if(creep.harvest(sources[1]) == ERR_NOT_IN_RANGE) {
                 creep.moveTo(sources[1], {visualizePathStyle: {stroke: '#FFDE59'}});
-				creep.say('🔄');
-            }
+				            }
 	    }
 	}
 };
