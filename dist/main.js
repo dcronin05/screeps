@@ -18,7 +18,7 @@ module.exports.loop = function () {
             filter: (structure) => structure.hits < structure.hitsMax
         });
         if(closestDamagedStructure) {
-            tower.repair(closestDamagedStructure);
+            tower.build(closestDamagedStructure);
         }
     }
     
