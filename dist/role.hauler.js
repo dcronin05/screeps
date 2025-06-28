@@ -19,7 +19,6 @@ var roleHauler = {
                             structure.store.getFreeCapacity(RESOURCE_ENERGY) > 0;
                     }
             });
-            creep.say(targets);
             if(targets.length > 0) {
                 for (var target of targets) {
                     while (target.structureType == STRUCTURE_TOWER) {
