@@ -37,10 +37,10 @@ var roleHauler = {
             }
         } else {
 
-            var dropped_energy = creep.pos.findClosestByPath(FIND_DROPPED_RESOURCES)
-            if (dropped_energy) {
-                if (creep.pickup(dropped_energy) == ERR_NOT_IN_RANGE) {
-                    creep.moveTo(dropped_energy, {visualizePathStyle: {stroke: '#FFDE59'}});
+            var dropped_energy = creep.room.find(FIND_DROPPED_RESOURCES)
+            if (dropped_energy.length > 0) {
+                if (creep.pickup(dropped_energy[0]) == ERR_NOT_IN_RANGE) {
+                    creep.moveTo(dropped_energy[0], {visualizePathStyle: {stroke: '#FFDE59'}});
                                     }
             }
 
