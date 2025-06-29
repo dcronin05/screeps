@@ -49,21 +49,21 @@ var roleHauler = {
                                     }
             };
 
-            var containers = creep.room.find(FIND_STRUCTURES, {
-                filter: (structure) => {
-                    return (structure.structureType == STRUCTURE_CONTAINER)
-                }
-            });
+            // var containers = creep.room.find(FIND_STRUCTURES, {
+            //     filter: (structure) => {
+            //         return (structure.structureType == STRUCTURE_CONTAINER)
+            //     }
+            // });
 
-            if (containers.length > 0) {
-                for (var container of containers) {
-                    if (container.store[RESOURCE_ENERGY] > 0) {
-                        if (creep.withdraw(container, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                            creep.moveTo(container, {visualizePathStyle: {stroke: '#FFDE59'}});
-                        }
-                    }
-                }
-            }
+            // if (containers.length > 0) {
+            //     for (var container of containers) {
+            //         if (container.store[RESOURCE_ENERGY] > 0) {
+            //             if (creep.withdraw(container, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+            //                 creep.moveTo(container, {visualizePathStyle: {stroke: '#FFDE59'}});
+            //             }
+            //         }
+            //     }
+            // }
         }
     }
 
