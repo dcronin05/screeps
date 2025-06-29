@@ -44,12 +44,12 @@ var roleHauler = {
                                     }
             }
 
-            var tomb = creep.pos.findClosestByPath(FIND_TOMBSTONES);
-            while (tomb) {
-                    if (creep.withdraw(tomb, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                    creep.moveTo(tomb, {visualizePathStyle: {stroke: '#FFDE59'}});
-                                    }
-            };
+            // var tomb = creep.pos.findClosestByPath(FIND_TOMBSTONES);
+            // while (tomb) {
+            //         if (creep.withdraw(tomb, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+            //         creep.moveTo(tomb, {visualizePathStyle: {stroke: '#FFDE59'}});
+            //                         }
+            // };
 
             var containers = creep.room.find(FIND_STRUCTURES, {
                 filter: (structure) => {
