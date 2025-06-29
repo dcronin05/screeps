@@ -20,6 +20,7 @@ var roleHauler = {
                             // structure.store.getFreeCapacity(RESOURCE_ENERGY) > 0;
                     }
             });
+            
             while(targets.length > 0) {
                 for (var target of targets) {
                     if (creep.transfer(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
