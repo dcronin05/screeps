@@ -21,18 +21,18 @@ var roleHauler = {
             });
 
             if (targets.length > 0) {
-                for (var target of targets) {
-                    if (creep.transfer(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                        creep.moveTo(target, {visualizePathStyle: {stroke: '#7DDA58'}});
-                    }
-                    if (target.store.getFreeCapacity(RESOURCE_ENERGY) == 0) {
-                        break; // Stop transferring if the tower is full
-                    }
-                }
+                // for (var target of targets) {
+                //     if (creep.transfer(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                //         creep.moveTo(target, {visualizePathStyle: {stroke: '#7DDA58'}});
+                //     }
+                //     if (target.store.getFreeCapacity(RESOURCE_ENERGY) == 0) {
+                //         break; // Stop transferring if the tower is full
+                //     }
+                // }
 
-                // if(creep.transfer(targets[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                //     creep.moveTo(targets[0], {visualizePathStyle: {stroke: '#7DDA58'}});
-                //                     }
+                if(creep.transfer(targets[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                    creep.moveTo(targets[0], {visualizePathStyle: {stroke: '#7DDA58'}});
+                                    }
             }
         } else {
 
