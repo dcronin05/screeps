@@ -58,7 +58,7 @@ module.exports.loop = function () {
         Game.spawns['Spawn1'].spawnCreep([WORK,WORK,MOVE], newName, 
             {memory: {role: 'harvester'}});
     }
-    else if(harvesters.length < 3) {
+    if(harvesters.length < 3) {
         var newName = 'Harvester' + Game.time;
         if(Game.time % 20 == 0) {
             console.log('Spawning new harvester: ' + newName);
@@ -66,7 +66,7 @@ module.exports.loop = function () {
         Game.spawns['Spawn1'].spawnCreep([WORK,WORK,WORK,WORK,WORK,WORK,MOVE], newName, 
             {memory: {role: 'harvester'}});
     }
-    else if(haulers.length < 2) {
+    if(haulers.length < 2) {
         var newName = 'Hauler' + Game.time;
         if(Game.time % 20 == 0) {
             console.log('Spawning new hauler: ' + newName);
@@ -74,7 +74,7 @@ module.exports.loop = function () {
         Game.spawns['Spawn1'].spawnCreep([CARRY,MOVE], newName, 
             {memory: {role: 'hauler'}});
     }
-    else if(haulers.length < 5) {
+    if(haulers.length < 5) {
         var newName = 'Hauler' + Game.time;
         if(Game.time % 20 == 0) {
             console.log('Spawning new hauler: ' + newName);
@@ -82,7 +82,7 @@ module.exports.loop = function () {
         Game.spawns['Spawn1'].spawnCreep([CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE], newName, 
             {memory: {role: 'hauler'}});
     }
-    else if(repairers.length < 0) {
+    if(repairers.length < 0) {
         var newName = 'Repairer' + Game.time;
         if(Game.time % 20 == 0) {
             console.log('Spawning new repairer: ' + newName);
@@ -90,7 +90,7 @@ module.exports.loop = function () {
         console.log(Game.spawns['Spawn1'].spawnCreep([WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE], newName, 
             {memory: {role: 'repairer'}}));
     }
-    else if(upgraders.length < 3) {
+    if(upgraders.length < 3) {
         var newName = 'Upgrader' + Game.time;
         if(Game.time % 20 == 0) {
             console.log('Spawning new upgrader: ' + newName);
@@ -98,7 +98,7 @@ module.exports.loop = function () {
         Game.spawns['Spawn1'].spawnCreep([WORK,WORK,WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,MOVE], newName, 
             {memory: {role: 'upgrader'}});
     }
-    else if(builders.length < 2) {
+    if(builders.length < 2) {
         var newName = 'Builder' + Game.time;
         if(Game.time % 20 == 0) {
             console.log('Spawning new builder: ' + newName);
