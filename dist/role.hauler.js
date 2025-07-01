@@ -52,7 +52,7 @@ var roleHauler = {
                     if (creep.withdraw(energy[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                         creep.moveTo(energy[0], {visualizePathStyle: {stroke: '#FFDE59'}});
                     }
-                } else if (energy[0].structureType == STRUCTURE_TOMBSTONE) {
+                } else if (energy[0].structureType == TOMBSTONE) {
                     if (creep.withdraw(energy[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                         creep.moveTo(energy[0], {visualizePathStyle: {stroke: '#FFDE59'}});
                     }
