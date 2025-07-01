@@ -43,9 +43,16 @@ var roleHauler = {
                     return (structure.structureType == STRUCTURE_CONTAINER && structure.store[RESOURCE_ENERGY] > 0); 
                 }
             }));
+            energy = energy.concat(creep.room.find(FIND_TOMBSTONES, {
+                filter: (tombstone) => { return (tombstone.store[RESOURCE_ENERGY] > 0); }
+            }));
 
             if (energy.length > 0) {
                 if (energy[0].structureType == STRUCTURE_CONTAINER) {
+                    if (creep.withdraw(energy[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                        creep.moveTo(energy[0], {visualizePathStyle: {stroke: '#FFDE59'}});
+                    }
+                } else if (energy[0].structureType == STRUCTURE_TOMBSTONE) {
                     if (creep.withdraw(energy[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                         creep.moveTo(energy[0], {visualizePathStyle: {stroke: '#FFDE59'}});
                     }
