@@ -15,7 +15,8 @@ var roleBuilder = {
 				filter: (structure) => {
 					return (structure.structureType == STRUCTURE_EXTENSION 
 						|| structure.structureType == STRUCTURE_ROAD 
-						|| structure.structureType == STRUCTURE_CONTAINER)
+						|| structure.structureType == STRUCTURE_CONTAINER
+						|| structure.structureType == STRUCTURE_STORAGE)
 					}
 			});
 			// filter: {structureType: STRUCTURE_EXTENSION}});
