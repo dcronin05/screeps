@@ -31,7 +31,7 @@ var roleHauler = {
             if (targets.length > 0) {
                 if(creep.transfer(targets[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(targets[0], {visualizePathStyle: {stroke: '#7DDA58'}});
-                    creep.say(creep.id + " : " + targets[0].pos.x + 'x' + targets[0].pos.y + 'y');
+                    creep.say(targets[0].pos.x + 'x' + targets[0].pos.y + 'y');
                 }
             }
         } else {
