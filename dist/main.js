@@ -90,7 +90,7 @@ module.exports.loop = function () {
         console.log(Game.spawns['Spawn1'].spawnCreep([WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE], newName, 
             {memory: {role: 'repairer'}}));
     }
-    if(upgraders.length < 5) {
+    if(upgraders.length < 10) {
         var newName = 'Upgrader' + Game.time;
         if(Game.time % 20 == 0) {
             console.log('Spawning new upgrader: ' + newName);
@@ -106,7 +106,7 @@ module.exports.loop = function () {
         Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,MOVE], newName, 
             {memory: {role: 'upgrader'}});
     }
-    if(builders.length < 4) {
+    if(builders.length < 3) {
         var newName = 'Builder' + Game.time;
         if(Game.time % 20 == 0) {
             console.log('Spawning new builder: ' + newName);
