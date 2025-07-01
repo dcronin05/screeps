@@ -14,7 +14,7 @@ var roleHauler = {
             var targets = creep.room.find(FIND_STRUCTURES, {
                     filter: (structure) => {
                         return ((structure.structureType == STRUCTURE_TOWER ||
-                            structure.structureType == STRUCTURE_EXTENSION || 
+                            structure.structureType == STRUCTURE_EXTENSION ||
                             structure.structureType == STRUCTURE_SPAWN)
                              && structure.store.getFreeCapacity(RESOURCE_ENERGY) > 0);
                     }
@@ -32,19 +32,28 @@ var roleHauler = {
                 }
             }
         } else {
-            var dropped_energy = creep.room.find(FIND_DROPPED_RESOURCES)
-            if (dropped_energy.length > 0) {
-                if (creep.pickup(dropped_energy[0]) == ERR_NOT_IN_RANGE) {
-                    creep.moveTo(dropped_energy[0], {visualizePathStyle: {stroke: '#FFDE59'}});
+
+            var energy = creep.room.find(FIND_DROPPED_RESOURCES)
+            energy = energy.concat(creep.room.find(FIND_STRUCTURES, {
+                filter: (structure) => { return (structure.structureType == STRUCTURE_CONTAINER && structure.store[RESOURCE_ENERGY] > 0); }
+            }));
+            energy = energy.concat(creep.room.find(FIND_STRUCTURES, {
+                filter: (structure) => { 
+                    return (structure.structureType == STRUCTURE_CONTAINER && structure.store[RESOURCE_ENERGY] > 0); 
+                }
+            }));
+
+            if (energy.length > 0) {
+                if (energy[0].structureType == STRUCTURE_CONTAINER) {
+                    if (creep.withdraw(energy[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                        creep.moveTo(energy[0], {visualizePathStyle: {stroke: '#FFDE59'}});
+                    }
+                } else {
+                    if (creep.pickup(energy[0]) == ERR_NOT_IN_RANGE) {
+                        creep.moveTo(energy[0], {visualizePathStyle: {stroke: '#FFDE59'}});
+                    }
                 }
             }
-
-            var tomb = creep.pos.findClosestByPath(FIND_TOMBSTONES);
-            if (tomb) {
-                    if (creep.withdraw(tomb, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                    creep.moveTo(tomb, {visualizePathStyle: {stroke: '#FFDE59'}});
-                                    }
-            };
 
             var containers = creep.room.find(FIND_STRUCTURES, {
                 filter: (structure) => {
