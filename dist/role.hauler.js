@@ -52,20 +52,20 @@ var roleHauler = {
 
             if (energy.length > 0) {
                 var target = creep.pos.findClosestByRange(energy);
-                creep.say(energy.structureType);
-                if (energy.structureType == STRUCTURE_CONTAINER) {
-                    if (creep.withdraw(energy, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                        creep.moveTo(energy, {visualizePathStyle: {stroke: '#FFDE59'}});
+                creep.say(target.structureType);
+                if (target.structureType == STRUCTURE_CONTAINER) {
+                    if (creep.withdraw(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                        creep.moveTo(target, {visualizePathStyle: {stroke: '#FFDE59'}});
                     }
                 } 
-                else if (energy.type == 'Tombstone') {
-                    if (creep.withdraw(energy, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                        creep.moveTo(energy, {visualizePathStyle: {stroke: '#FFDE59'}});
+                else if (target.type == 'Tombstone') {
+                    if (creep.withdraw(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                        creep.moveTo(target, {visualizePathStyle: {stroke: '#FFDE59'}});
                     }
                 } 
                 else {
-                    if (creep.pickup(energy) == ERR_NOT_IN_RANGE) {
-                        creep.moveTo(energy, {visualizePathStyle: {stroke: '#FFDE59'}});
+                    if (creep.pickup(target) == ERR_NOT_IN_RANGE) {
+                        creep.moveTo(target, {visualizePathStyle: {stroke: '#FFDE59'}});
                     }
                 }
             }
