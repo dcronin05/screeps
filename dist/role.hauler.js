@@ -57,6 +57,23 @@ var roleHauler = {
             }));
 
             if (energy.length > 0) {
+                var containers = creep.room.find(FIND_STRUCTURES, {
+                    filter: (structure) => {
+                        return (structure.structureType == STRUCTURE_CONTAINER)
+                    }
+                });
+    
+                if (containers.length > 0) {
+                    for (var container of containers) {
+                        if (container.store[RESOURCE_ENERGY] > 0) {
+                            if (creep.withdraw(container, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                                creep.moveTo(container, {visualizePathStyle: {stroke: '#FFDE59'}});
+                            }
+                        }
+                    }
+                }
+            }
+            else {
                 if (energy[0].structureType == STRUCTURE_CONTAINER) {
                     creep.say('Container');
                     if (creep.withdraw(energy[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
@@ -72,23 +89,6 @@ var roleHauler = {
                     creep.say('Dropped Resource');
                     if (creep.pickup(energy[0]) == ERR_NOT_IN_RANGE) {
                         creep.moveTo(energy[0], {visualizePathStyle: {stroke: '#FFDE59'}});
-                    }
-                }
-            }
-            else {
-                var containers = creep.room.find(FIND_STRUCTURES, {
-                    filter: (structure) => {
-                        return (structure.structureType == STRUCTURE_CONTAINER)
-                    }
-                });
-    
-                if (containers.length > 0) {
-                    for (var container of containers) {
-                        if (container.store[RESOURCE_ENERGY] > 0) {
-                            if (creep.withdraw(container, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                                creep.moveTo(container, {visualizePathStyle: {stroke: '#FFDE59'}});
-                            }
-                        }
                     }
                 }
             }
