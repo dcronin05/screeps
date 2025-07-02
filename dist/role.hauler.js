@@ -52,7 +52,7 @@ var roleHauler = {
 
             if (energy.length > 0) {
                 var target = creep.pos.findClosestByRange(energy);
-                creep.say(energy.pos.x + 'x' + energy.pos.y + 'y');
+                creep.say(energy.pos);
                 if (energy.structureType == STRUCTURE_CONTAINER) {
                     if (creep.withdraw(energy, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                         creep.moveTo(energy, {visualizePathStyle: {stroke: '#FFDE59'}});
