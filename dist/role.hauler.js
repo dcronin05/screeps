@@ -16,17 +16,10 @@ var roleHauler = {
                         return ((structure.structureType == STRUCTURE_TOWER ||
                             structure.structureType == STRUCTURE_EXTENSION ||
                             structure.structureType == STRUCTURE_SPAWN ||
-                            structure.structureType == STRUCTURE_CONTAINER ||
-                            structure.type == "Ruin")
-                             && structure.store.getFreeCapacity(RESOURCE_ENERGY) > 0);
+                            structure.structureType == STRUCTURE_STORAGE
+                        ) && structure.store.getFreeCapacity(RESOURCE_ENERGY) > 0);
                     }
             });
-
-            for (var target of targets) {
-                if (target.type == 'Ruin') {
-                    console.log('Found a ruin with energy: ' + ruin.store[RESOURCE_ENERGY]);
-                }
-            }
 
             targets.sort((b,a) => a.store.getFreeCapacity(RESOURCE_ENERGY) - b.store.getFreeCapacity(RESOURCE_ENERGY));
 
@@ -46,45 +39,24 @@ var roleHauler = {
             energy = energy.concat(creep.room.find(FIND_STRUCTURES, {
                 filter: (structure) => { return (structure.structureType == STRUCTURE_CONTAINER && structure.store[RESOURCE_ENERGY] > 0); }
             }));
-            energy = energy.concat(creep.room.find(FIND_STRUCTURES, {
-                filter: (structure) => { 
-                    return (structure.structureType == STRUCTURE_CONTAINER && structure.store[RESOURCE_ENERGY] > 0); 
-                }
-            }));
             energy = energy.concat(creep.room.find(FIND_TOMBSTONES, {
                 filter: (tombstone) => { return (tombstone.store[RESOURCE_ENERGY] > 0); }
             }));
 
             if (energy.length > 0) {
-                var containers = creep.room.find(FIND_STRUCTURES, {
-                    filter: (structure) => {
-                        return (structure.structureType == STRUCTURE_CONTAINER)
-                    }
-                });
-    
-                if (containers.length > 0) {
-                    for (var container of containers) {
-                        if (container.store[RESOURCE_ENERGY] > 0) {
-                            if (creep.withdraw(container, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                                creep.moveTo(container, {visualizePathStyle: {stroke: '#FFDE59'}});
-                            }
-                        }
-                    }
-                }
-            }
-            else {
                 if (energy[0].structureType == STRUCTURE_CONTAINER) {
                     creep.say('Container');
                     if (creep.withdraw(energy[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                         creep.moveTo(energy[0], {visualizePathStyle: {stroke: '#FFDE59'}});
                     }
-
-                } else if (energy[0].type == 'Tombstone') {
+                } 
+                else if (energy[0].type == 'Tombstone') {
                     creep.say('Tombstone');
                     if (creep.withdraw(energy[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                         creep.moveTo(energy[0], {visualizePathStyle: {stroke: '#FFDE59'}});
                     }
-                } else {
+                } 
+                else {
                     creep.say('Dropped Resource');
                     if (creep.pickup(energy[0]) == ERR_NOT_IN_RANGE) {
                         creep.moveTo(energy[0], {visualizePathStyle: {stroke: '#FFDE59'}});
