@@ -3,6 +3,8 @@ var roleRepairer = {
     /** @param {Creep} creep **/
     run: function(creep) {
 
+		creep.say("🔧");
+
 	    if(creep.memory.repairing && creep.store[RESOURCE_ENERGY] == 0) {
             creep.memory.repairing = false;
 	    }
@@ -19,14 +21,14 @@ var roleRepairer = {
 			if(targets.length > 0) {
 				if(creep.repair(targets[0]) == ERR_NOT_IN_RANGE) {
 					creep.moveTo(targets[0], {visualizePathStyle: {stroke: '#7DDA58'}});
-									}
+				}
 			}
 			else {
 				var targets = creep.room.find(FIND_CONSTRUCTION_SITES);
             	if(targets.length && targets[0].structureType != "container") {
                 	if(creep.build(targets[0]) == ERR_NOT_IN_RANGE) {
                     	creep.moveTo(targets[0], {visualizePathStyle: {stroke: '#FE9900'}});
-						                	}
+					}
           		}
 			}
 	    }
