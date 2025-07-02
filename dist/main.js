@@ -15,19 +15,20 @@ module.exports.loop = function () {
     
     if(tower) {
         var closestHostile = tower.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
+        var closestDamagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
+            filter: (structure) => (structure.hits < structure.hitsMax) && structure.hits < 3001
+        });
+        
         if(closestHostile) {
             tower.attack(closestHostile);
         }
+        else if(closestDamagedStructure) {
+            tower.repair(closestDamagedStructure);
+        }
     }
     
-    // if(tower) {
-    //     var closestDamagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
-    //         filter: (structure) => (structure.hits < structure.hitsMax) && structure.hits < 3001
-    //     });
-    //     if(closestDamagedStructure) {
-    //         tower.repair(closestDamagedStructure);
-    //     }
-    // }
+    if(tower) {
+    }
 
     for(var name in Memory.creeps) {
         if(!Game.creeps[name]) {
