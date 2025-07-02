@@ -31,10 +31,20 @@ var roleRepairer = {
 			}
 	    }
 	    else {
-	        var sources = creep.room.find(FIND_SOURCES);
-            if(creep.harvest(sources[1]) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(sources[1], {visualizePathStyle: {stroke: '#FFDE59'}});
-				            }
+            var energy_stores = creep.room.find(FIND_STRUCTURES, {
+                filter: (structure) => {
+                    return (structure.structureType == STRUCTURE_EXTENSION)
+                }
+            });
+            if (energy_stores.length > 0) {
+                for (var store of energy_stores) {
+                    if (store.store[RESOURCE_ENERGY] > 0) {
+                        if (creep.withdraw(store, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                            creep.moveTo(store, {visualizePathStyle: {stroke: '#FFDE59'}});
+                        }
+                    }
+                }
+            }
 	    }
 	}
 };
