@@ -20,14 +20,14 @@ module.exports.loop = function () {
         }
     }
     
-    if(tower) {
-        var closestDamagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
-            filter: (structure) => (structure.hits < structure.hitsMax) && structure.hits < 3001
-        });
-        if(closestDamagedStructure) {
-            tower.repair(closestDamagedStructure);
-        }
-    }
+    // if(tower) {
+    //     var closestDamagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
+    //         filter: (structure) => (structure.hits < structure.hitsMax) && structure.hits < 3001
+    //     });
+    //     if(closestDamagedStructure) {
+    //         tower.repair(closestDamagedStructure);
+    //     }
+    // }
 
     for(var name in Memory.creeps) {
         if(!Game.creeps[name]) {
