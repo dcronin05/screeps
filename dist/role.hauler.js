@@ -58,18 +58,18 @@ var roleHauler = {
 
             if (energy.length > 0) {
                 if (energy[0].structureType == STRUCTURE_CONTAINER) {
-                    console.log('Container');
+                    creep.say('Container');
                     if (creep.withdraw(energy[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                         creep.moveTo(energy[0], {visualizePathStyle: {stroke: '#FFDE59'}});
                     }
 
                 } else if (energy[0].type == 'Tombstone') {
-                    console.log('Tombstone');
+                    creep.say('Tombstone');
                     if (creep.withdraw(energy[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                         creep.moveTo(energy[0], {visualizePathStyle: {stroke: '#FFDE59'}});
                     }
                 } else {
-                    console.log('Dropped Resource');
+                    creep.say('Dropped Resource');
                     if (creep.pickup(energy[0]) == ERR_NOT_IN_RANGE) {
                         creep.moveTo(energy[0], {visualizePathStyle: {stroke: '#FFDE59'}});
                     }
