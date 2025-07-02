@@ -27,8 +27,14 @@ var roleHauler = {
             //     console.log(target.structureType + ' ' + target.id + ' ' + target.store.getFreeCapacity(RESOURCE_ENERGY) + ' ' + target.pos.x + 'x' + target.pos.y);
             // }
 
-            if (targets.length > 0) {
+            if (targets.length > 0 && targets[0].structureType != STRUCTURE_STORAGE) {
                 target = creep.pos.findClosestByRange(targets);
+                if(creep.transfer(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                    creep.moveTo(target, {visualizePathStyle: {stroke: '#7DDA58'}});
+                    creep.say(target.pos.x + 'x' + target.pos.y + 'y');
+                }
+            } else if (targets.length == 1) {
+                                target = creep.pos.findClosestByRange(targets);
                 if(creep.transfer(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(target, {visualizePathStyle: {stroke: '#7DDA58'}});
                     creep.say(target.pos.x + 'x' + target.pos.y + 'y');
