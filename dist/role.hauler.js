@@ -52,20 +52,18 @@ var roleHauler = {
 
             if (energy.length > 0) {
                 var target = creep.pos.findClosestByRange(energy);
+                creep.say(energy);
                 if (energy.structureType == STRUCTURE_CONTAINER) {
-                    creep.say('Container');
                     if (creep.withdraw(energy, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                         creep.moveTo(energy, {visualizePathStyle: {stroke: '#FFDE59'}});
                     }
                 } 
                 else if (energy.type == 'Tombstone') {
-                    creep.say('Tombstone');
                     if (creep.withdraw(energy, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                         creep.moveTo(energy, {visualizePathStyle: {stroke: '#FFDE59'}});
                     }
                 } 
                 else {
-                    creep.say('Dropped Resource');
                     if (creep.pickup(energy) == ERR_NOT_IN_RANGE) {
                         creep.moveTo(energy, {visualizePathStyle: {stroke: '#FFDE59'}});
                     }
