@@ -130,7 +130,7 @@ module.exports.loop = function () {
         if(Game.time % 20 == 0) {
             console.log('Spawning new upgrader: ' + newName);
         }
-        console.log('-- ' + 
+        console.log('Upgrader -- ' + 
             Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,MOVE], newName, 
                 {memory: {role: 'upgrader'}})
         );
@@ -140,7 +140,7 @@ module.exports.loop = function () {
         if(Game.time % 20 == 0) {
             console.log('Spawning new builder: ' + newName);
         }
-        console.log('-- ' + 
+        console.log('Builder -- ' + 
             Game.spawns['Spawn1'].spawnCreep([WORK,WORK,WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE], newName, 
                 {memory: {role: 'builder'}})
         );
