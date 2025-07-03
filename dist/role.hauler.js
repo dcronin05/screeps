@@ -61,10 +61,10 @@ var roleHauler = {
                 filter: (ruin) => { return (ruin.store[RESOURCE_ENERGY] > 0); }
             }));
             
-            creep.say(energy.type);
-
+            
             if (energy.length > 0) {
                 target = creep.pos.findClosestByRange(energy);
+                creep.say(energy.type);
                 
                 // console.log('Found energy: ' + target.type + ' ' + target.pos.x + 'x' + target.pos.y);
 
