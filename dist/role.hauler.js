@@ -5,7 +5,7 @@ var roleHauler = {
         if (creep.ticksToLive > 1000) { 
             creep.memory.dying = false; 
         }
-        if (creep.ticksToLive < 500 && Game.spawns['Spawn1'].getUsedCapacity(RESOURCE_ENERGY) > 249) { 
+        if (creep.ticksToLive < 500 && Game.spawns['Spawn1'].store.getUsedCapacity() > 249) { 
             creep.memory.dying = true; 
             console.log(creep.name + ' dying');
         }
