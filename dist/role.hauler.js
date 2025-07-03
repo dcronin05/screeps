@@ -32,7 +32,6 @@ var roleHauler = {
 
                 for (var tower of targets) { 
                     if (tower.structureType == STRUCTURE_TOWER && tower.store.getFreeCapacity(RESOURCE_ENERGY) > 199) {
-                        console.log('Found a tower with enough capacity: ' + tower.id);
                         target = tower;
                     }
                 }
