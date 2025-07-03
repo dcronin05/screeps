@@ -105,12 +105,12 @@ module.exports.loop = function () {
                 {memory: {role: 'hauler', skill: 'storage'}})
         );
     }
-    if(repairers.length < 2) {
+    if(repairers.length < 1) {
         var newName = 'Repairer' + Game.time;
         if(Game.time % 20 == 0) {
             console.log('Spawning new repairer: ' + newName);
         }
-        console.log(
+        console.log( '-- ' + 
             Game.spawns['Spawn1'].spawnCreep([WORK,WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE], newName, 
             {memory: {role: 'repairer'}})
         );
