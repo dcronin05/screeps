@@ -29,8 +29,10 @@ var roleHauler = {
 
             if (targets.length > 0 && targets[0].structureType != STRUCTURE_STORAGE) {
                 target = creep.pos.findClosestByRange(targets);
+
                 for (var t of targets) { 
                     if (target.structureType == STRUCTURE_TOWER && target.store.getFreeCapacity(RESOURCE_ENERGY) > 199) {
+                        console.log('Found a tower with enough capacity: ' + target.id);
                         target = t;
                     }
                 }
