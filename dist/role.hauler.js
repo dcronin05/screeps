@@ -30,12 +30,12 @@ var roleHauler = {
             if (targets.length > 0 && targets[0].structureType != STRUCTURE_STORAGE) {
                 target = creep.pos.findClosestByRange(targets);
 
-                for (var tower of targets) { 
-                    if (tower.structureType == STRUCTURE_TOWER && tower.store.getFreeCapacity(RESOURCE_ENERGY) > 199) {
-                        target = tower;
+                for (var priority of targets) { 
+                    if (priority.structureType == STRUCTURE_TOWER && priority.store.getFreeCapacity(RESOURCE_ENERGY) > 199) {
+                        target = priority;
                     }
-                    if (tower.structureType == STRUCTURE_STORAGE && creep.memory.skill == 'storage') {
-                        target = tower
+                    if (priority.structureType == STRUCTURE_STORAGE && creep.memory.skill == 'storage') {
+                        target = priority
                     }
                 }
 
