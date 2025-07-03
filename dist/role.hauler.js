@@ -45,7 +45,7 @@ var roleHauler = {
                 target = creep.pos.findClosestByRange(targets);
                 if(creep.transfer(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(target, {visualizePathStyle: {stroke: '#7DDA58'}});
-                    creep.say(target.pos.x + 'x' + target.pos.y + 'y');
+                    creep.say('🏪');
                 }
             }
         } 
