@@ -20,9 +20,9 @@ var roleRepairer = {
 				}
 			);
 
-			if(Game.time % 2 == 0 && targets.length > 0) {
-				console.log("Repairing " + targets[0].structureType + " with ID: " + targets[0].id + " with hits: " + targets[0].hits + " out of " + targets[0].hitsMax);
-			};
+			// if(Game.time % 2 == 0 && targets.length > 0) {
+			// 	console.log("Repairing " + targets[0].structureType + " with ID: " + targets[0].id + " with hits: " + targets[0].hits + " out of " + targets[0].hitsMax);
+			// };
 
 			if(targets.length > 0) {
 				var target = creep.pos.findClosestByRange(targets);
