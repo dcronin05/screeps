@@ -58,9 +58,10 @@ var roleHauler = {
                 filter: (tombstone) => { return (tombstone.store[RESOURCE_ENERGY] > 0); }
             }));
             energy = energy.concat(creep.room.find(FIND_RUINS, {
-                console.log('Found ruins'),
                 filter: (ruin) => { return (ruin.store[RESOURCE_ENERGY] > 0); }
             }));
+            
+            console.log(energy);
 
             if (energy.length > 0) {
                 target = creep.pos.findClosestByRange(energy);
