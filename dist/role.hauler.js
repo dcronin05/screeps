@@ -40,12 +40,12 @@ var roleHauler = {
                 for (var priority of targets) { 
                     if (priority.structureType == STRUCTURE_TOWER && priority.store.getFreeCapacity(RESOURCE_ENERGY) > 199) {
                         target = priority;
-                        console.log('prioritizing tower');
+                        creep.say('🗼');
                     }
                     if (priority.structureType == STRUCTURE_SPAWN) { target = priority; }
                     if (priority.structureType == STRUCTURE_STORAGE && creep.memory.skill == 'storage') {
                         target = priority;
-                        console.log('prioritizing storage');
+                        console.log('🏪');
                     }
                 }
 
