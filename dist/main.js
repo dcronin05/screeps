@@ -45,8 +45,9 @@ module.exports.loop = function () {
     var repairers = _.filter(Game.creeps, (creep) => creep.memory.role == 'repairer');
     var haulers = _.filter(Game.creeps, (creep) => creep.memory.role == 'hauler');
     
+    console.log('Current CPU usage: ' + Game.cpu.getUsed());
+    
     if(Game.time % 10 == 0) {
-        console.log('Current CPU usage: ' + Game.cpu.getUsed());
         console.log('Harvesters: ' + harvesters.length);
         console.log('Upgraders: ' + upgraders.length);
         console.log('Builders: ' + builders.length);
