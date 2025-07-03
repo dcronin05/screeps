@@ -3,7 +3,7 @@ var roleHauler = {
     /** @param {Creep} creep **/
     run: function(creep) {
         if (creep.ticksToLive > 1000) { creep.memory.dying = false; creep.say('living'); }
-        if (creep.ticksToLive < 500) { creep.memory.dying = true; creep.say('dying'); }
+        if (creep.ticksToLive < 500 && Game.spawns['Spawn1'].getFreeCapacity < 99) { creep.memory.dying = true; creep.say('dying'); }
         console.log(creep.name + ' ' + creep.ticksToLive);
 
 	    if(!creep.memory.dying && creep.memory.hauling && creep.store[RESOURCE_ENERGY] == 0) {
@@ -117,7 +117,7 @@ var roleHauler = {
         else {
             creep.say('🏥')
             if (creep.pos.getRangeTo(Game.spawns['Spawn1']) > 0) {
-                creep.moveTo(creep.room.getPositionAt(23, 17));
+                creep.moveTo(Game.flags['Renew']);
                 console.log(creep.name + ' ' + creep.pos.getRangeTo(Game.spawns['Spawn1']) + ' away from spawn');
             }
         }
