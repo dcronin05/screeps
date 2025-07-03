@@ -60,7 +60,9 @@ var roleHauler = {
             }
         } 
         else if (!creep.memory.dying) {
-            var energy = creep.room.find(FIND_DROPPED_RESOURCES);
+            var energy = creep.room.find(FIND_DROPPED_RESOURCES, {
+                filter: (e) => { return ( e.pos.x != 1 && e.pos.x != 48 && e.pos.y != 48 )}
+            });
             
             energy = energy.concat(creep.room.find(FIND_STRUCTURES, {
                 filter: (structure) => { return (
