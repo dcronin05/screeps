@@ -34,6 +34,9 @@ var roleHauler = {
                     if (tower.structureType == STRUCTURE_TOWER && tower.store.getFreeCapacity(RESOURCE_ENERGY) > 199) {
                         target = tower;
                     }
+                    if (tower.structureType == STRUCTURE_STORAGE && creep.memory.skill == 'storage') {
+                        target = tower
+                    }
                 }
 
                 if(creep.transfer(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {

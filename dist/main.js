@@ -46,7 +46,7 @@ module.exports.loop = function () {
     var haulers = _.filter(Game.creeps, (creep) => creep.memory.role == 'hauler');
     
     console.log('Current CPU usage: ' + Game.cpu.getUsed());
-    
+
     if(Game.time % 10 == 0) {
         console.log('Harvesters: ' + harvesters.length);
         console.log('Upgraders: ' + upgraders.length);
@@ -86,6 +86,14 @@ module.exports.loop = function () {
         }
         Game.spawns['Spawn1'].spawnCreep([CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE], newName, 
             {memory: {role: 'hauler'}});
+    }
+    if(haulers.length < 5) {
+        var newName = 'Hauler' + Game.time;
+        if(Game.time % 20 == 0) {
+            console.log('Spawning new storage hauler: ' + newName);
+        }
+        Game.spawns['Spawn1'].spawnCreep([CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE], newName, 
+            {memory: {role: 'hauler', skill: 'storage'}});
     }
     if(repairers.length < 2) {
         var newName = 'Repairer' + Game.time;
