@@ -2,6 +2,7 @@ var roleHauler = {
 
     /** @param {Creep} creep **/
     run: function(creep) {
+        creep.memory.dying = false;
         if (creep.ticksToLive < 500) { creep.memory.dying == true; creep.say('dying'); }
         if (creep.ticksToLive > 1000) { creep.memory.dying = false; creep.say('living'); }
 
