@@ -17,7 +17,7 @@ module.exports.loop = function () {
         var closestHostile = tower.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
         var closestDamagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
             filter: (structure) => (
-                (structure.hits < 100 && structure.hits < 5001) ||
+                (structure.hits < 100 && structure.hits < 30001) ||
                 structure.hits < 1000 && structure.structureType == STRUCTURE_CONTAINER
             )
         });
