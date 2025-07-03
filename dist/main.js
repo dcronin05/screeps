@@ -139,7 +139,6 @@ module.exports.loop = function () {
 
     for(var name in Game.creeps) {
         Game.spawns['Spawn1'].renewCreep(name)
-        console.log('renewing' + name)
 
         var creep = Game.creeps[name];
         if(creep.memory.role == 'harvester') {
