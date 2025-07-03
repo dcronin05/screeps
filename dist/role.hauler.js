@@ -29,12 +29,19 @@ var roleHauler = {
 
             if (targets.length > 0 && targets[0].structureType != STRUCTURE_STORAGE) {
                 target = creep.pos.findClosestByRange(targets);
+                for (var t of targets) { 
+                    if (target.structureType == STRUCTURE_TOWER && target.store.getFreeCapacity(RESOURCE_ENERGY) > 199) {
+                        target = t;
+                    }
+                }
+
                 if(creep.transfer(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(target, {visualizePathStyle: {stroke: '#7DDA58'}});
                     creep.say(target.pos.x + 'x' + target.pos.y + 'y');
                 }
-            } else if (targets.length == 1) {
-                                target = creep.pos.findClosestByRange(targets);
+            }
+            else if (targets.length == 1) {
+                target = creep.pos.findClosestByRange(targets);
                 if(creep.transfer(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(target, {visualizePathStyle: {stroke: '#7DDA58'}});
                     creep.say(target.pos.x + 'x' + target.pos.y + 'y');
@@ -53,11 +60,6 @@ var roleHauler = {
             if (energy.length > 0) {
                 target = creep.pos.findClosestByRange(energy);
                 
-                for (var e of energy) { 
-                    if (target.structureType == STRUCTURE_TOWER && target.store.getFreeCapacity(RESOURCE_ENERGY) > 0) {
-                        target = e;
-                    }
-                }
 
                 if (target.structureType == STRUCTURE_CONTAINER) {
                     if (creep.withdraw(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
