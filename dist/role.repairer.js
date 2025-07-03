@@ -19,8 +19,9 @@ var roleRepairer = {
 				console.log("Repairing " + targets[0].structureType + " with ID: " + targets[0].id + " with hits: " + targets[0].hits + " out of " + targets[0].hitsMax);
 			};
 			if(targets.length > 0) {
-				if(creep.repair(targets[0]) == ERR_NOT_IN_RANGE) {
-					creep.moveTo(targets[0], {visualizePathStyle: {stroke: '#7DDA58'}});
+				var target = creep.pos.findClosestByRange(targets);
+				if(creep.repair(target) == ERR_NOT_IN_RANGE) {
+					creep.moveTo(target, {visualizePathStyle: {stroke: '#7DDA58'}});
 				}
 			}
 			// else {
@@ -35,7 +36,7 @@ var roleRepairer = {
 	    else {
             var energy_stores = creep.room.find(FIND_STRUCTURES, {
                 filter: (structure) => {
-                    return (structure.structureType == STRUCTURE_EXTENSION)
+                    return (structure.structureType == STRUCTURE_STORAGE)
                 }
             });
             if (energy_stores.length > 0) {
