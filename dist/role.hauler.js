@@ -2,15 +2,17 @@ var roleHauler = {
 
     /** @param {Creep} creep **/
     run: function(creep) {
+        if (creep.ticksToLive() < 500) { creep.memory.dying == true }
+        if (creep.ticksToLive() > 1000) { creep.memory.dying = false; }
 
-	    if(creep.memory.hauling && creep.store[RESOURCE_ENERGY] == 0) {
+	    if(!creep.memory.dying && creep.memory.hauling && creep.store[RESOURCE_ENERGY] == 0) {
             creep.memory.hauling = false;
 	    }
-	    if(!creep.memory.hauling && creep.store.getFreeCapacity() == 0) {
+	    if(!creep.memory.dying && !creep.memory.hauling && creep.store.getFreeCapacity() == 0) {
 	        creep.memory.hauling = true;
 	    }
 
-        if(creep.memory.hauling) {
+        if(!creep.memory.dying && creep.memory.hauling) {
             var targets = creep.room.find(FIND_STRUCTURES, {
                     filter: (structure) => {
                         return ((structure.structureType == STRUCTURE_TOWER ||
@@ -52,7 +54,7 @@ var roleHauler = {
                 }
             }
         } 
-        else {
+        else if (!creep.memory.dying) {
             var energy = creep.room.find(FIND_DROPPED_RESOURCES);
             
             energy = energy.concat(creep.room.find(FIND_STRUCTURES, {
@@ -110,6 +112,11 @@ var roleHauler = {
                 }
             }
 
+        }
+        else {
+            if (creep.rangeTo(Game.spawns['Spawn1']) > 1) {
+                creep.moveTo(Game.spawns['Spawn1']);
+            }
         }
     }
 
