@@ -72,6 +72,7 @@ var roleHauler = {
                     if (creep.withdraw(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                         creep.moveTo(target, {visualizePathStyle: {stroke: '#FFDE59'}});
                     }
+                    creep.say('container');
                 }
                 else if (target.type == 'Tombstone') {
                     if (creep.withdraw(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
@@ -87,6 +88,7 @@ var roleHauler = {
                     if (creep.pickup(target) == ERR_NOT_IN_RANGE) {
                         creep.moveTo(target, {visualizePathStyle: {stroke: '#FFDE59'}});
                     }
+                    creep.say('dropped')
                 }
             }
 
