@@ -67,7 +67,7 @@ var roleHauler = {
                 
                 for (var ruin of energy) {
                     if (ruin.structure) {
-                        console.log(ruin.structure.structureType + ' ' + ruin.id + ' ' + ruin.store + ' ' + ruin.pos.x + 'x' + ruin.pos.y);
+                        console.log(ruin.structure.structureType + ' ' + ruin.id + ' ' + ruin.store[RESOURCE_ENERGY] + ' ' + ruin.pos.x + 'x' + ruin.pos.y);
                     }
                         if (ruin.type == 'Ruin' && ruin.store > 0) {
                         target = ruin;
