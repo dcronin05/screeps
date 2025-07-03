@@ -96,7 +96,6 @@ var roleHauler = {
             //         if 
             //     }
                 
-                
                 for (var ruin of energy) {
                     if (ruin.structure) {
                         target = ruin;
@@ -123,6 +122,10 @@ var roleHauler = {
                     }
                     creep.say('🫳')
                 }
+            }
+
+            if (energy.length == 0) {
+                creep.memory.hauling = true;
             }
 
         }
