@@ -8,7 +8,7 @@ var roleHarvester = {
         if (creep.ticksToLive > 1499 || Game.spawns['Spawn1'].store.getUsedCapacity(RESOURCE_ENERGY) <= 200) { 
             creep.memory.dying = false; 
         }
-        if (creep.ticksToLive < 1000 && Game.spawns['Spawn1'].store.getUsedCapacity(RESOURCE_ENERGY) > 200) { 
+        if (creep.ticksToLive < 500 && Game.spawns['Spawn1'].store.getUsedCapacity(RESOURCE_ENERGY) > 200) { 
             creep.memory.dying = true; 
             console.log(creep.name + ' is dying');
         }
