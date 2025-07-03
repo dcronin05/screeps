@@ -27,7 +27,8 @@ var roleRepairer = {
 
 			if(targets.length > 0) {
 				var target = creep.pos.findClosestByRange(targets);
-				creep.say("🔧" + target.pos.x + 'x' + target.pos.y + 'y');
+				creep.say("🔧");
+				creep.say(target.pos.x + 'x' + target.pos.y + 'y');
 				if(creep.repair(target) == ERR_NOT_IN_RANGE) {
 					creep.moveTo(target, {visualizePathStyle: {stroke: '#7DDA58'}});
 				}
