@@ -13,7 +13,7 @@ var roleRepairer = {
 		
 	    if(creep.memory.repairing) {
 			creep.say("🔧");
-	        var targets = creep.room.find(FIND_CONSTRUCTION_SITES, filter => { return filter.hits < 3000 });
+	        var targets = creep.room.find(FIND_STRUCTURES, filter => { return filter.hits < 3000 && filter.hits < filter.hitsMax });
 			console.log(targets);
 			// targets.sort((b,a) => (a.hitsMax / a.hits) - (b.hitsMax / b.hits));
 			if(Game.time % 2 == 0 && targets.length > 0) {
