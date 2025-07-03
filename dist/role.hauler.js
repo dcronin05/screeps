@@ -50,7 +50,9 @@ var roleHauler = {
             }
         } 
         else {
-            var energy = creep.room.find(FIND_DROPPED_RESOURCES)
+            var energy = creep.room.find(FIND_DROPPED_RESOURCES,
+                { fitler: (target) => { return ( creep.pos.findPathTo(target) ); } }
+            );
             energy = energy.concat(creep.room.find(FIND_STRUCTURES, {
                 filter: (structure) => { return (
                     structure.structureType == STRUCTURE_CONTAINER && 
