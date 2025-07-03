@@ -22,7 +22,7 @@ module.exports.loop = function () {
         if(closestHostile) {
             tower.attack(closestHostile);
         }
-        else if(closestDamagedStructure && Room.energyAvailable >= 1500) {
+        else if(closestDamagedStructure) {
             tower.repair(closestDamagedStructure);
         }
     }
