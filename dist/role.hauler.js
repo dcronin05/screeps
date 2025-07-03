@@ -67,9 +67,7 @@ var roleHauler = {
                 
                 for (var ruin of energy) {
                     if (ruin.structure) {
-                        console.log(ruin.structure.structureType + ' ' + ruin.id + ' ' + ruin.store[RESOURCE_ENERGY] + ' ' + ruin.pos.x + 'x' + ruin.pos.y);
                     }
-                        if (ruin.type == 'Ruin' && ruin.store > 0) {
                         target = ruin;
                         console.log('ruin found: ' + target.id + ' ' + target.pos.x + 'x' + target.pos.y);
                     }
@@ -87,11 +85,6 @@ var roleHauler = {
                         creep.moveTo(target, {visualizePathStyle: {stroke: '#FFDE59'}});
                     }
                     creep.say('pickup');
-                }
-                else if (target.type == 'Ruin') {
-                    if (creep.transfer(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                        creep.moveTo(target, {visualizePathStyle: {stroke: '#FFDE59'}});
-                    }
                 }
                 else {
                     if (creep.pickup(target) == ERR_NOT_IN_RANGE) {
