@@ -64,9 +64,9 @@ var roleHauler = {
             
             if (energy.length > 0) {
                 target = creep.pos.findClosestByRange(energy);
-                console.log(energy);
                 
                 for (var ruin of energy) {
+                    console.log(ruin.type + ' ' + ruin.id + ' ' + ruin.store[RESOURCE_ENERGY] + ' ' + ruin.pos.x + 'x' + ruin.pos.y);
                     if (ruin.type == 'Ruin' && ruin.store[RESOURCE_ENERGY] > 0) {
                         target = ruin;
                         console.log('ruin found: ' + target.id + ' ' + target.pos.x + 'x' + target.pos.y);
