@@ -75,13 +75,13 @@ module.exports.loop = function () {
                 {memory: {role: 'harvester'}})
         );
     }
-    if(haulers.length < 1) {
+    if(haulers.length < 2) {
         var newName = 'Hauler' + Game.time;
         if(Game.time % 20 == 0) {
             console.log('Spawning new hauler: ' + newName);
         }
         console.log('Hauler -- ' + 
-            Game.spawns['Spawn1'].spawnCreep([CARRY,MOVE], newName, 
+            Game.spawns['Spawn1'].spawnCreep([CARRY,CARRY,CARRY,MOVE,MOVE,MOVE], newName, 
                 {memory: {role: 'hauler'}})
         );
     }
