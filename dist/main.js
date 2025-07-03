@@ -15,16 +15,16 @@ module.exports.loop = function () {
     
     if(tower) {
         var closestHostile = tower.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
-        // var closestDamagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
-        //     filter: (structure) => (structure.hits < structure.hitsMax) && structure.hits < 20001
-        // });
+        var closestDamagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
+            filter: (structure) => (structure.hits < structure.hitsMax) && structure.hits < 20001
+        });
         
         if(closestHostile) {
             tower.attack(closestHostile);
         }
-        else if(closestDamagedStructure) {
-            tower.repair(closestDamagedStructure);
-        }
+        // else if(closestDamagedStructure) {
+        //     tower.repair(closestDamagedStructure);
+        // }
     }
     
     if(tower) {
