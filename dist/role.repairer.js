@@ -12,14 +12,14 @@ var roleRepairer = {
 	    }
 		
 	    if(creep.memory.repairing) {
-			var targets = creep.room.find(FIND_STRUCTURES, filter => { return filter.hits < 3000 && filter.hits < filter.hitsMax });
+			var targets = creep.room.find(FIND_STRUCTURES, filter: (structure) => { return structure.hits < 3000 && structure.hits < structure.hitsMax });
 			// targets.sort((b,a) => (a.hitsMax / a.hits) - (b.hitsMax / b.hits));
 			console.log(targets);
 
 			if(Game.time % 2 == 0 && targets.length > 0) {
 				console.log("Repairing " + targets[0].structureType + " with ID: " + targets[0].id + " with hits: " + targets[0].hits + " out of " + targets[0].hitsMax);
 			};
-			
+
 			if(targets.length > 0) {
 				creep.say("🔧");
 				var target = creep.pos.findClosestByRange(targets);
