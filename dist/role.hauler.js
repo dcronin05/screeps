@@ -52,18 +52,27 @@ var roleHauler = {
         else {
             var energy = creep.room.find(FIND_DROPPED_RESOURCES)
             energy = energy.concat(creep.room.find(FIND_STRUCTURES, {
-                filter: (structure) => { return (structure.structureType == STRUCTURE_CONTAINER && structure.store[RESOURCE_ENERGY] > 0); }
+                filter: (structure) => { return (
+                    structure.structureType == STRUCTURE_CONTAINER && 
+                    structure.store[RESOURCE_ENERGY] > 0 &&
+                    creep.findPathTo(structure)); 
+                }
             }));
             energy = energy.concat(creep.room.find(FIND_TOMBSTONES, {
-                filter: (tombstone) => { return (tombstone.store[RESOURCE_ENERGY] > 0); }
+                filter: (tombstone) => { return (tombstone.store[RESOURCE_ENERGY] > 0 &&
+                    creep.findPathTo(structure)); 
+                }
             }));
             energy = energy.concat(creep.room.find(FIND_RUINS, {
-                filter: (ruin) => { return (ruin.store[RESOURCE_ENERGY] > 0); }
+                filter: (ruin) => { return (ruin.store[RESOURCE_ENERGY] > 0 &&
+                    creep.findPathTo(structure)); 
+                }
             }));
             
             
             if (energy.length > 0) {
                 target = creep.pos.findClosestByRange(energy);
+                
                 
                 for (var ruin of energy) {
                     if (ruin.structure) {
