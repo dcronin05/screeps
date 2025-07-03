@@ -121,17 +121,7 @@ module.exports.loop = function () {
             console.log('Spawning new upgrader: ' + newName);
         }
         console.log('Upgrader -- ' + 
-            Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,MOVE], newName, 
-                {memory: {role: 'upgrader'}})
-        );
-    }
-    else if(upgraders.length < 2) {
-        var newName = 'Upgrader' + Game.time;
-        if(Game.time % 20 == 0) {
-            console.log('Spawning new upgrader: ' + newName);
-        };
-        console.log('Upgrader -- ' + 
-            Game.spawns['Spawn1'].spawnCreep([WORK,WORK,WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE], newName, 
+            Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,CARRY,MOVE,MOVE], newName, 
                 {memory: {role: 'upgrader'}})
         );
     }
@@ -144,8 +134,18 @@ module.exports.loop = function () {
             Game.spawns['Spawn1'].spawnCreep([WORK,WORK,WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE], newName, 
                 {memory: {role: 'builder'}})
         );
+    }
+    else if(upgraders.length < 6) {
+        var newName = 'Upgrader' + Game.time;
+        if(Game.time % 20 == 0) {
+            console.log('Spawning new upgrader: ' + newName);
+        };
+        console.log('Upgrader -- ' + 
+            Game.spawns['Spawn1'].spawnCreep([WORK,WORK,WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE], newName, 
+                {memory: {role: 'upgrader'}})
+        );
     };
-
+        
     if(Game.spawns['Spawn1'].spawning) { 
         var spawningCreep = Game.creeps[Game.spawns['Spawn1'].spawning.name];
         Game.spawns['Spawn1'].room.visual.text(
