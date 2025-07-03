@@ -71,7 +71,7 @@ module.exports.loop = function () {
         Game.spawns['Spawn1'].spawnCreep([WORK,WORK,WORK,WORK,WORK,WORK,WORK,WORK,WORK,WORK,MOVE], newName, 
             {memory: {role: 'harvester'}});
     }
-    if(haulers.length < 2) {
+    if(haulers.length < 1) {
         var newName = 'Hauler' + Game.time;
         if(Game.time % 20 == 0) {
             console.log('Spawning new hauler: ' + newName);
@@ -79,7 +79,7 @@ module.exports.loop = function () {
         Game.spawns['Spawn1'].spawnCreep([CARRY,MOVE], newName, 
             {memory: {role: 'hauler'}});
     }
-    if(haulers.length < 4) {
+    if(haulers.length < 3) {
         var newName = 'Hauler' + Game.time;
         if(Game.time % 20 == 0) {
             console.log('Spawning new hauler: ' + newName);
@@ -87,7 +87,7 @@ module.exports.loop = function () {
         Game.spawns['Spawn1'].spawnCreep([CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE], newName, 
             {memory: {role: 'hauler'}});
     }
-    if(haulers.length < 5) {
+    if(haulers.length < 4) {
         var newName = 'Hauler' + Game.time;
         if(Game.time % 20 == 0) {
             console.log('Spawning new storage hauler: ' + newName);
