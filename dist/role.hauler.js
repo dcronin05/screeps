@@ -48,8 +48,8 @@ var roleHauler = {
                     creep.say(target.pos.x + 'x' + target.pos.y + 'y');
                 }
             }
-        } else {
-
+        } 
+        else {
             var energy = creep.room.find(FIND_DROPPED_RESOURCES)
             energy = energy.concat(creep.room.find(FIND_STRUCTURES, {
                 filter: (structure) => { return (structure.structureType == STRUCTURE_CONTAINER && structure.store[RESOURCE_ENERGY] > 0); }
@@ -66,6 +66,7 @@ var roleHauler = {
             if (energy.length > 0) {
                 target = creep.pos.findClosestByRange(energy);
                 
+                console.log('Found energy: ' + target.id + ' ' + target.pos.x + 'x' + target.pos.y);
 
                 if (target.structureType == STRUCTURE_CONTAINER) {
                     if (creep.withdraw(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
