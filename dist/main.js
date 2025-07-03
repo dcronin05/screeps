@@ -115,7 +115,7 @@ module.exports.loop = function () {
             {memory: {role: 'repairer'}})
         );
     }
-    if(upgraders.length < 4) {
+    if(upgraders.length < 2) {
         var newName = 'Upgrader' + Game.time;
         if(Game.time % 20 == 0) {
             console.log('Spawning new upgrader: ' + newName);
