@@ -3,6 +3,14 @@ var roleUpgrader = {
     /** @param {Creep} creep **/
     run: function(creep) {
 
+        if (creep.ticksToLive > 1000) { 
+            creep.memory.dying = false; 
+        }
+        if (creep.ticksToLive < 500 && Game.spawns['Spawn1'].store.getUsedCapacity(RESOURCE_ENERGY) > 200) { 
+            creep.memory.dying = true; 
+            console.log(creep.name + ' is dying');
+        }
+
         if(creep.memory.upgrading && creep.store[RESOURCE_ENERGY] == 0) {
             creep.memory.upgrading = false;
 	    }
@@ -10,13 +18,13 @@ var roleUpgrader = {
 	        creep.memory.upgrading = true;
 	    }
 
-	    if(creep.memory.upgrading) {
+	    if(creep.memory.upgrading && !creep.memory.dying) {
             creep.say('🔺')
             if(creep.upgradeController(creep.room.controller) == ERR_NOT_IN_RANGE) {
                 creep.moveTo(creep.room.controller, {visualizePathStyle: {stroke: '#060270'}});
             }
         }
-        else {
+        else if (!creep.memory.dying) {
 
             var energy_stores = creep.room.find(FIND_STRUCTURES, {
                 filter: (structure) => {
@@ -31,6 +39,13 @@ var roleUpgrader = {
                         }
                     }
                 }
+            }
+        }
+        else if (creep.memory.dying) {
+            creep.say('🏥')
+            if (creep.pos.getRangeTo(Game.spawns['Spawn1']) > 0) {
+                creep.moveTo(Game.spawns['Spawn1']);
+                console.log(creep.name + ' ' + creep.pos.getRangeTo(Game.spawns['Spawn1']) + ' away from spawn');
             }
         }
 	}
