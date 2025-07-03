@@ -38,7 +38,7 @@ var roleHauler = {
                 target = creep.pos.findClosestByRange(targets);
 
                 for (var priority of targets) { 
-                    if (priority.structureType == STRUCTURE_TOWER && priority.store.getFreeCapacity(RESOURCE_ENERGY) > 199) {
+                    if (priority.structureType == STRUCTURE_TOWER && priority.store.getFreeCapacity() > 199) {
                         target = priority;
                         console.log('prioritizing tower');
                     }
