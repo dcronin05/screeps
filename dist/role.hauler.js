@@ -51,7 +51,14 @@ var roleHauler = {
             }));
 
             if (energy.length > 0) {
-                var target = creep.pos.findClosestByRange(energy);
+                target = creep.pos.findClosestByRange(energy);
+                
+                for (var e of energy) { 
+                    if (target.structureType == STRUCTURE_TOWER && target.store.getFreeCapacity(RESOURCE_ENERGY) > 0) {
+                        target = e;
+                    }
+                }
+
                 if (target.structureType == STRUCTURE_CONTAINER) {
                     if (creep.withdraw(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                         creep.moveTo(target, {visualizePathStyle: {stroke: '#FFDE59'}});
