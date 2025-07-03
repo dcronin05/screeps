@@ -6,10 +6,12 @@ var roleUpgrader = {
         if (creep.ticksToLive > 1499 || Game.spawns['Spawn1'].store.getUsedCapacity(RESOURCE_ENERGY) <= 200) { 
             creep.memory.dying = false; 
         }
-        if (creep.ticksToLive < 1000 && Game.spawns['Spawn1'].store.getUsedCapacity(RESOURCE_ENERGY) > 200) { 
-            creep.memory.dying = true; 
-            console.log(creep.name + ' is dying');
-        }
+        if (creep.ticksToLive < 500 && 
+            creep.pos.getRangeTo(Game.spawns['Spawn1']) < 10 && 
+            Game.spawns['Spawn1'].store.getUsedCapacity(RESOURCE_ENERGY) > 200) { 
+                creep.memory.dying = true; 
+                console.log(creep.name + ' is dying');
+            }
 
         if(creep.memory.upgrading && creep.store[RESOURCE_ENERGY] == 0) {
             creep.memory.upgrading = false;
