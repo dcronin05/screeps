@@ -50,64 +50,57 @@ var roleHauler = {
             }
         } 
         else {
-            var energy = creep.room.find(FIND_DROPPED_RESOURCES,
-                { fitler: (target) => { return ( creep.pos.findPathTo(target) ); } }
-            );
+            var energy = creep.room.find(FIND_DROPPED_RESOURCES);
             
-            // debug printing
-            console.log(creep.pos.findPathTo(energy[0]));
-
             energy = energy.concat(creep.room.find(FIND_STRUCTURES, {
                 filter: (structure) => { return (
                     structure.structureType == STRUCTURE_CONTAINER && 
-                    structure.store[RESOURCE_ENERGY] > 0 &&
-                    creep.pos.findPathTo(structure)); 
-                }
+                    structure.store[RESOURCE_ENERGY] > 0
+                )}
             }));
             energy = energy.concat(creep.room.find(FIND_TOMBSTONES, {
-                filter: (tombstone) => { return (tombstone.store[RESOURCE_ENERGY] > 0 &&
-                    creep.pos.findPathTo(structure)); 
-                }
+                filter: (tombstone) => { return (tombstone.store[RESOURCE_ENERGY] > 0) }
             }));
             energy = energy.concat(creep.room.find(FIND_RUINS, {
-                filter: (ruin) => { return (ruin.store[RESOURCE_ENERGY] > 0 &&
-                    creep.pos.findPathTo(structure)); 
-                }
+                filter: (ruin) => { return (ruin.store[RESOURCE_ENERGY] > 0); }
             }));
             
+            // TODO: finish unreachable target logic
             
-            if (energy.length > 0) {
-                target = creep.pos.findClosestByRange(energy);
-                
-                
-                for (var ruin of energy) {
-                    if (ruin.structure) {
-                        target = ruin;
-                        console.log('ruin found: ' + target.id + ' ' + target.pos.x + 'x' + target.pos.y);
-                    }
-                }
-                // console.log('Found energy: ' + target.type + ' ' + target.pos.x + 'x' + target.pos.y);
+            // if (energy.length > 0) {
+            //     target = creep.pos.findClosestByRange(energy);
 
-                if (target.structureType == STRUCTURE_CONTAINER) {
-                    if (creep.withdraw(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                        creep.moveTo(target, {visualizePathStyle: {stroke: '#FFDE59'}});
-                    }
-                    creep.say('🫙');
-                }
-                else if (target.store) {
-                    if (creep.withdraw(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                        creep.moveTo(target, {visualizePathStyle: {stroke: '#FFDE59'}});
-                    }
-                    creep.say('🛻');
-                }
-                else {
-                    if (creep.pickup(target) == ERR_NOT_IN_RANGE) {
-                        creep.moveTo(target, {visualizePathStyle: {stroke: '#FFDE59'}});
-                    }
-                    creep.say('🫳')
+            //     for (var step of creep.pos.findPathTo(target) ) {
+            //         if 
+            //     }
+                
+                
+            for (var ruin of energy) {
+                if (ruin.structure) {
+                    target = ruin;
+                    console.log('ruin found: ' + target.id + ' ' + target.pos.x + 'x' + target.pos.y);
                 }
             }
+            // console.log('Found energy: ' + target.type + ' ' + target.pos.x + 'x' + target.pos.y);
 
+            if (target.structureType == STRUCTURE_CONTAINER) {
+                if (creep.withdraw(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                    creep.moveTo(target, {visualizePathStyle: {stroke: '#FFDE59'}});
+                }
+                creep.say('🫙');
+            }
+            else if (target.store) {
+                if (creep.withdraw(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                    creep.moveTo(target, {visualizePathStyle: {stroke: '#FFDE59'}});
+                }
+                creep.say('🛻');
+            }
+            else {
+                if (creep.pickup(target) == ERR_NOT_IN_RANGE) {
+                    creep.moveTo(target, {visualizePathStyle: {stroke: '#FFDE59'}});
+                }
+                creep.say('🫳')
+            }
         }
     }
 
