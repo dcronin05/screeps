@@ -3,16 +3,16 @@ var roleRepairer = {
     /** @param {Creep} creep **/
     run: function(creep) {
 
-		creep.say("🔧");
-
-	    if(creep.memory.repairing && creep.store[RESOURCE_ENERGY] == 0) {
-            creep.memory.repairing = false;
+		
+		if(creep.memory.repairing && creep.store[RESOURCE_ENERGY] == 0) {
+			creep.memory.repairing = false;
 	    }
 	    if(!creep.memory.repairing && creep.store.getFreeCapacity() == 0) {
-	        creep.memory.repairing = true;
+			creep.memory.repairing = true;
 	    }
-
+		
 	    if(creep.memory.repairing) {
+			creep.say("🔧");
 	        var targets = creep.room.find(FIND_CONSTRUCTION_SITES, filter => { return filter.hits < 3000 });
 			console.log(targets);
 			// targets.sort((b,a) => (a.hitsMax / a.hits) - (b.hitsMax / b.hits));
