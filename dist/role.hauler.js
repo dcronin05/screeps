@@ -77,19 +77,19 @@ var roleHauler = {
                     if (creep.withdraw(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                         creep.moveTo(target, {visualizePathStyle: {stroke: '#FFDE59'}});
                     }
-                    creep.say('container');
+                    creep.say(🫙);
                 }
                 else if (target.store) {
                     if (creep.withdraw(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                         creep.moveTo(target, {visualizePathStyle: {stroke: '#FFDE59'}});
                     }
-                    creep.say('pickup');
+                    creep.say(🛻);
                 }
                 else {
                     if (creep.pickup(target) == ERR_NOT_IN_RANGE) {
                         creep.moveTo(target, {visualizePathStyle: {stroke: '#FFDE59'}});
                     }
-                    creep.say('dropped')
+                    creep.say(🫳)
                 }
             }
 
