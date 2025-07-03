@@ -117,9 +117,8 @@ var roleHauler = {
         }
         else {
             creep.say('🏥')
-            if (creep.rangeTo(Game.spawns['Spawn1']) > 0) {
+            if (creep.rangeTo(Game.spawns['Spawn1']) > 1) {
                 creep.moveTo(Game.spawns['Spawn1']);
-                console.log('m2s')
             }
         }
     }

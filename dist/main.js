@@ -6,8 +6,6 @@ var roleHauler = require('role.hauler');
 
 module.exports.loop = function () {
 
-    Game.spawns['Spawn1'].renewCreep()
-
     var hostiles = Game.rooms['E45N49'].find(FIND_HOSTILE_CREEPS);
     if (hostiles.length > 0) {
         Game.rooms['E45N49'].controller.activateSafeMode();
@@ -141,7 +139,8 @@ module.exports.loop = function () {
 
     for(var name in Game.creeps) {
         Game.spawns['Spawn1'].renewCreep(name)
-        
+        console.log('renewing' + name)
+
         var creep = Game.creeps[name];
         if(creep.memory.role == 'harvester') {
             roleHarvester.run(creep);
