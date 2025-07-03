@@ -60,7 +60,7 @@ module.exports.loop = function () {
         if(Game.time % 20 == 0) {
             console.log('Spawning new harvester: ' + newName);
         }
-        console.log(
+        console.log('-- ' + 
             Game.spawns['Spawn1'].spawnCreep([WORK,WORK,MOVE], newName, 
                 {memory: {role: 'harvester'}})
         );
@@ -70,7 +70,7 @@ module.exports.loop = function () {
         if(Game.time % 20 == 0) {
             console.log('Spawning new harvester: ' + newName);
         }
-        console.log(
+        console.log('-- ' + 
             Game.spawns['Spawn1'].spawnCreep([WORK,WORK,WORK,WORK,WORK,WORK,WORK,WORK,WORK,WORK,MOVE], newName, 
                 {memory: {role: 'harvester'}})
         );
@@ -80,7 +80,7 @@ module.exports.loop = function () {
         if(Game.time % 20 == 0) {
             console.log('Spawning new hauler: ' + newName);
         }
-        console.log(
+        console.log('-- ' + 
             Game.spawns['Spawn1'].spawnCreep([CARRY,MOVE], newName, 
                 {memory: {role: 'hauler'}})
         );
@@ -90,7 +90,7 @@ module.exports.loop = function () {
         if(Game.time % 20 == 0) {
             console.log('Spawning new hauler: ' + newName);
         }
-        console.log(
+        console.log('-- ' + 
             Game.spawns['Spawn1'].spawnCreep([CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE], newName, 
                 {memory: {role: 'hauler'}})
         );
@@ -100,7 +100,7 @@ module.exports.loop = function () {
         if(Game.time % 20 == 0) {
             console.log('Spawning new storage hauler: ' + newName);
         }
-        console.log(
+        console.log('-- ' + 
             Game.spawns['Spawn1'].spawnCreep([CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE], newName, 
                 {memory: {role: 'hauler', skill: 'storage'}})
         );
@@ -120,7 +120,7 @@ module.exports.loop = function () {
         if(Game.time % 20 == 0) {
             console.log('Spawning new upgrader: ' + newName);
         };
-        console.log(
+        console.log('-- ' + 
             Game.spawns['Spawn1'].spawnCreep([WORK,WORK,WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE], newName, 
                 {memory: {role: 'upgrader'}})
         );
@@ -130,7 +130,7 @@ module.exports.loop = function () {
         if(Game.time % 20 == 0) {
             console.log('Spawning new upgrader: ' + newName);
         }
-        console.log(
+        console.log('-- ' + 
             Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,MOVE], newName, 
                 {memory: {role: 'upgrader'}})
         );
@@ -140,7 +140,7 @@ module.exports.loop = function () {
         if(Game.time % 20 == 0) {
             console.log('Spawning new builder: ' + newName);
         }
-        console.log(
+        console.log('-- ' + 
             Game.spawns['Spawn1'].spawnCreep([WORK,WORK,WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE], newName, 
                 {memory: {role: 'builder'}})
         );
