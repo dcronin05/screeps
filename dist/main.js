@@ -79,7 +79,7 @@ module.exports.loop = function () {
         Game.spawns['Spawn1'].spawnCreep([CARRY,MOVE], newName, 
             {memory: {role: 'hauler'}});
     }
-    if(haulers.length < 3) {
+    if(haulers.length < 2) {
         var newName = 'Hauler' + Game.time;
         if(Game.time % 20 == 0) {
             console.log('Spawning new hauler: ' + newName);
