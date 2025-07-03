@@ -58,6 +58,7 @@ var roleHauler = {
                 filter: (tombstone) => { return (tombstone.store[RESOURCE_ENERGY] > 0); }
             }));
             energy = energy.concat(creep.room.find(FIND_RUINS, {
+                console.log('Found ruins'),
                 filter: (ruin) => { return (ruin.store[RESOURCE_ENERGY] > 0); }
             }));
 
@@ -69,12 +70,12 @@ var roleHauler = {
                     if (creep.withdraw(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                         creep.moveTo(target, {visualizePathStyle: {stroke: '#FFDE59'}});
                     }
-                } 
+                }
                 else if (target.type == 'Tombstone') {
                     if (creep.withdraw(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                         creep.moveTo(target, {visualizePathStyle: {stroke: '#FFDE59'}});
                     }
-                } 
+                }
                 else if (target.type == 'Ruin') {
                     if (creep.withdraw(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                         creep.moveTo(target, {visualizePathStyle: {stroke: '#FFDE59'}});
