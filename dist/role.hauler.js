@@ -2,6 +2,7 @@ var roleHauler = {
 
     /** @param {Creep} creep **/
     run: function(creep) {
+        // temporarily flag creeps as alive until all haulers have TTL above 1000
         creep.memory.dying = false;
         if (creep.ticksToLive < 500) { creep.memory.dying == true; creep.say('dying'); }
         if (creep.ticksToLive > 1000) { creep.memory.dying = false; creep.say('living'); }
@@ -118,6 +119,7 @@ var roleHauler = {
             creep.say('🏥')
             if (creep.rangeTo(Game.spawns['Spawn1']) > 0) {
                 creep.moveTo(Game.spawns['Spawn1']);
+                console.log('m2s')
             }
         }
     }
