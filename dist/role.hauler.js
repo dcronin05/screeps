@@ -3,7 +3,7 @@ var roleHauler = {
     /** @param {Creep} creep **/
     run: function(creep) {
         if (creep.ticksToLive > 1000) { creep.memory.dying = false; creep.say('living'); }
-        if (creep.ticksToLive < 500) { creep.memory.dying == true; creep.say('dying'); }
+        if (creep.ticksToLive < 500) { creep.memory.dying = true; creep.say('dying'); }
         console.log(creep.name + ' ' + creep.ticksToLive);
 
 	    if(!creep.memory.dying && creep.memory.hauling && creep.store[RESOURCE_ENERGY] == 0) {
