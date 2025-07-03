@@ -55,7 +55,7 @@ var roleHauler = {
             );
             
             // debug printing
-            console.log(creep.pos.findPathTo(target));
+            console.log(creep.pos.findPathTo(energy[0]));
 
             energy = energy.concat(creep.room.find(FIND_STRUCTURES, {
                 filter: (structure) => { return (
