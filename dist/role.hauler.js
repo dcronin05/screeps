@@ -116,9 +116,9 @@ var roleHauler = {
         }
         else {
             creep.say('🏥')
-            if (creep.rangeTo(Game.spawns['Spawn1']) > 1) {
+            if (creep.pos.rangeTo(Game.spawns['Spawn1']) > 1) {
                 creep.moveTo(Game.spawns['Spawn1']);
-                console.log(creep.name + ' ' + creep.rangeTo(Game.spawns['Spawn1']) + ' away from spawn');
+                console.log(creep.name + ' ' + creep.pos.rangeTo(Game.spawns['Spawn1']) + ' away from spawn');
             }
         }
     }
