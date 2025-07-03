@@ -117,31 +117,11 @@ var roleHauler = {
         else {
             creep.say('🏥')
             if (creep.pos.getRangeTo(Game.spawns['Spawn1']) > 0) {
-                creep.moveTo(creep.room.getPositionAt(24, 18));
+                creep.moveTo(creep.room.getPositionAt(23, 17));
                 console.log(creep.name + ' ' + creep.pos.getRangeTo(Game.spawns['Spawn1']) + ' away from spawn');
             }
         }
     }
-
-	//     if(creep.memory.hauling) {
-	//         var targets = creep.room.find(FIND_CONSTRUCTION_SITES);
-	// 		// filter: {structureType: STRUCTURE_EXTENSION}});
-	// 		targets.sort((b,a) => (a.progressTotal - a.progress) - (b.progressTotal - b.progress));
-	// 		// console.log(targets);
-    //         if(targets.length) {
-	// 			if(creep.build(targets[0]) == ERR_NOT_IN_RANGE) {
-	// 				creep.moveTo(targets[0], {visualizePathStyle: {stroke: '#FE9900'}});
-	// 				creep.say('🧺')
-	// 			}
-	// 		}
-	// 	}
-	//     else {
-	//         var sources = creep.room.find(FIND_SOURCES);
-    //         if(creep.harvest(sources[1]) == ERR_NOT_IN_RANGE) {
-    //             creep.moveTo(sources[1], {visualizePathStyle: {stroke: '#FFDE59'}});
-	// 			    //         }
-	//     }
-	// }
 };
 
 module.exports = roleHauler;
