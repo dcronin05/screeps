@@ -5,12 +5,12 @@ var roleHauler = {
         if (creep.ticksToLive > 1499 || Game.spawns['Spawn1'].store.getUsedCapacity(RESOURCE_ENERGY) < 300) { 
             creep.memory.dying = false; 
         }
-        if (creep.ticksToLive < 1000 && 
-            Game.spawns['Spawn1'].store.getUsedCapacity(RESOURCE_ENERGY) >= 201 &&
-            creep.store.getUsedCapacity(RESOURCE_ENERGY) == 0) { 
-                creep.memory.dying = true; 
-                console.log(creep.name + ' is dying');
-        }
+        // if (creep.ticksToLive < 1000 && 
+        //     Game.spawns['Spawn1'].store.getUsedCapacity(RESOURCE_ENERGY) >= 201 &&
+        //     creep.store.getUsedCapacity(RESOURCE_ENERGY) == 0) { 
+        //         creep.memory.dying = true; 
+        //         console.log(creep.name + ' is dying');
+        // }
 
 	    if(!creep.memory.dying && creep.memory.hauling && creep.store[RESOURCE_ENERGY] == 0) {
             creep.memory.hauling = false;
@@ -131,13 +131,13 @@ var roleHauler = {
             }
 
         }
-        else {
-            creep.say('🏥')
-            if (creep.pos.getRangeTo(Game.spawns['Spawn1']) > 0) {
-                creep.moveTo(Game.spawns['Spawn1']);
-                console.log(creep.name + ' ' + creep.pos.getRangeTo(Game.spawns['Spawn1']) + ' away from spawn');
-            }
-        }
+        // else {
+        //     creep.say('🏥')
+        //     if (creep.pos.getRangeTo(Game.spawns['Spawn1']) > 0) {
+        //         creep.moveTo(Game.spawns['Spawn1']);
+        //         console.log(creep.name + ' ' + creep.pos.getRangeTo(Game.spawns['Spawn1']) + ' away from spawn');
+        //     }
+        // }
     }
 };
 
