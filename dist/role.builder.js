@@ -18,7 +18,7 @@ var roleBuilder = {
 						|| structure.structureType == STRUCTURE_CONTAINER
 						|| structure.structureType == STRUCTURE_STORAGE
 						|| structure.structureType == STRUCTURE_WALL)
-						&& structure.progressTotal < 5000 )
+						&& structure.progress < 50000 )
 					}
 			});
 			// filter: {structureType: STRUCTURE_EXTENSION}});

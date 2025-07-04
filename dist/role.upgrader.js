@@ -3,12 +3,12 @@ var roleUpgrader = {
     /** @param {Creep} creep **/
     run: function(creep) {
 
-        if (creep.ticksToLive > 1499 || Game.spawns['Spawn1'].store.getUsedCapacity(RESOURCE_ENERGY) <= 200) { 
+        if (creep.ticksToLive > 1499 || Game.spawns['Spawn1'].store.getUsedCapacity(RESOURCE_ENERGY) < 300) { 
             creep.memory.dying = false; 
         }
         if (creep.ticksToLive < 500 && 
             creep.pos.getRangeTo(Game.spawns['Spawn1']) < 10 && 
-            Game.spawns['Spawn1'].store.getUsedCapacity(RESOURCE_ENERGY) > 200) { 
+            Game.spawns['Spawn1'].store.getUsedCapacity(RESOURCE_ENERGY) >= 300) { 
                 creep.memory.dying = true; 
                 console.log(creep.name + ' is dying');
             }
