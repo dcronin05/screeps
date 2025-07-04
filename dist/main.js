@@ -105,7 +105,7 @@ module.exports.loop = function () {
                 {memory: {role: 'hauler', skill: 'storage'}})
         );
     }
-    else if(repairers.length < 1) {
+    else if(repairers.length < 0) {
         var newName = 'Repairer' + Game.time;
         if(Game.time % 20 == 0) {
             console.log('Spawning new repairer: ' + newName);
@@ -125,7 +125,7 @@ module.exports.loop = function () {
                 {memory: {role: 'upgrader'}})
         );
     }
-    else if(builders.length < 1) {
+    else if(builders.length < 0) {
         var newName = 'Builder' + Game.time;
         if(Game.time % 20 == 0) {
             console.log('Spawning new builder: ' + newName);
@@ -135,7 +135,7 @@ module.exports.loop = function () {
                 {memory: {role: 'builder'}})
         );
     }
-    else if(upgraders.length < 6) {
+    else if(upgraders.length < 10) {
         var newName = 'Upgrader' + Game.time;
         if(Game.time % 20 == 0) {
             console.log('Spawning new upgrader: ' + newName);
