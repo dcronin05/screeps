@@ -100,6 +100,8 @@ var roleHauler = {
                 
                 for (var ruin of energy) {
 
+                    console.log (ruin.creep.owner)
+
                     if (ruin.structure) {
                         target = ruin;
                         console.log('ruin found: ' + target.id + ' ' + target.pos.x + 'x' + target.pos.y);
