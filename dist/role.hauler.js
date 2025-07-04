@@ -80,7 +80,7 @@ var roleHauler = {
             energy = energy.concat(creep.room.find(FIND_TOMBSTONES, {
                 filter: (tombstone) => { return (tombstone.store[RESOURCE_ENERGY] > 0) &&
                     creep.moveTo(tombstone) != ERR_NO_PATH &&
-                    tombstone.creep.owner.username == 'GrandpaPantz'
+                    tombstone.creep.my
                 }
             }));
             energy = energy.concat(creep.room.find(FIND_RUINS, {
