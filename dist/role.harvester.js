@@ -11,7 +11,7 @@ var roleHarvester = {
         // if (creep.ticksToLive < 500 && Game.spawns['Spawn1'].store.getUsedCapacity(RESOURCE_ENERGY) >= 300) { 
         //     creep.memory.dying = true; 
         //     console.log(creep.name + ' is dying');
-        }
+        // }
         
         if(creep.memory.source == 0 && !creep.memory.dying) {
             if(creep.harvest(sources[0]) == ERR_NOT_IN_RANGE) {
