@@ -100,7 +100,7 @@ var roleHauler = {
                 
                 for (var ruin of energy) {
 
-                    console.log(ruin);
+                    creep.say(ruin);
 
                     if (ruin.structure) {
                         target = ruin;
