@@ -97,9 +97,6 @@ var roleHauler = {
             //     for (var step of creep.pos.findPathTo(target) ) {
             //         if 
             //     }
-                
-
-                console.log(energy);
 
                 for (var ruin of energy) {
 
