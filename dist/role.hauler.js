@@ -100,7 +100,7 @@ var roleHauler = {
                 
                 for (var ruin of energy) {
 
-                    console.log (ruin)
+                    console.log(ruin);
 
                     if (ruin.structure) {
                         target = ruin;
