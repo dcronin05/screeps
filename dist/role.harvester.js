@@ -8,9 +8,9 @@ var roleHarvester = {
         if (creep.ticksToLive > 1499 || Game.spawns['Spawn1'].store.getUsedCapacity(RESOURCE_ENERGY) < 300) { 
             creep.memory.dying = false; 
         }
-        if (creep.ticksToLive < 500 && Game.spawns['Spawn1'].store.getUsedCapacity(RESOURCE_ENERGY) >= 300) { 
-            creep.memory.dying = true; 
-            console.log(creep.name + ' is dying');
+        // if (creep.ticksToLive < 500 && Game.spawns['Spawn1'].store.getUsedCapacity(RESOURCE_ENERGY) >= 300) { 
+        //     creep.memory.dying = true; 
+        //     console.log(creep.name + ' is dying');
         }
         
         if(creep.memory.source == 0 && !creep.memory.dying) {
