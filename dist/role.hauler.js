@@ -79,8 +79,7 @@ var roleHauler = {
             }));
             energy = energy.concat(creep.room.find(FIND_TOMBSTONES, {
                 filter: (tombstone) => { return (tombstone.store[RESOURCE_ENERGY] > 0) &&
-                    creep.moveTo(tombstone) != ERR_NO_PATH &&
-                    tombstone.owner == 'GrandpaPantz'
+                    creep.moveTo(tombstone) != ERR_NO_PATH
                 }
             }));
             energy = energy.concat(creep.room.find(FIND_RUINS, {
@@ -99,6 +98,9 @@ var roleHauler = {
             //     }
                 
                 for (var ruin of energy) {
+
+                    console.log(ruin.owner);
+                    
                     if (ruin.structure) {
                         target = ruin;
                         console.log('ruin found: ' + target.id + ' ' + target.pos.x + 'x' + target.pos.y);
