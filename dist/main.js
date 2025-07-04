@@ -158,7 +158,7 @@ module.exports.loop = function () {
     for(var name in Game.creeps) {
         var creep = Game.creeps[name];
 
-        if (creep.pos.getRangeTo(Game.spawns['Spawn1']) == 1) { 
+        if (creep.pos.getRangeTo(Game.spawns['Spawn1']) == 1 && Game.creeps.length > 13) { 
             Game.spawns['Spawn1'].renewCreep(creep);
         }
 
