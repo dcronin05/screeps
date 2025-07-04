@@ -159,7 +159,7 @@ module.exports.loop = function () {
         var creep = Game.creeps[name];
 
         if (creep.pos.getRangeTo(Game.spawns['Spawn1']) == 1) { 
-            console.log(creep.name + ' ' + Game.spawns['Spawn1'].renewCreep(creep)); 
+            Game.spawns['Spawn1'].renewCreep(creep);
         }
 
         if(creep.memory.role == 'harvester') {
