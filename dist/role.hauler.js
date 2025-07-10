@@ -132,7 +132,7 @@ var roleHauler = {
                 }
             }
 
-            if (energy.length == 0 && creep.store.getFreeCapacity(RESOURCE_ENERGY) > 0) {
+            if (energy.length == 0 && creep.store.getFreeCapacity(RESOURCE_ENERGY) > 0 && creep.memory.skill != 'storage') {
                 var energy_stores = creep.room.find(FIND_STRUCTURES, {
                     filter: (structure) => {
                         return (structure.structureType == STRUCTURE_STORAGE)
