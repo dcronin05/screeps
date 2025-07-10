@@ -17,7 +17,8 @@ var roleBuilder = {
 						|| structure.structureType == STRUCTURE_ROAD 
 						|| structure.structureType == STRUCTURE_CONTAINER
 						|| structure.structureType == STRUCTURE_STORAGE
-						|| structure.structureType == STRUCTURE_WALL)
+						|| structure.structureType == STRUCTURE_WALL
+                        || structure.structureType == STRUCTURE_TOWER)
 						&& structure.progress < 50000 )
 					}
 			});
