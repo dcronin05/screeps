@@ -39,7 +39,7 @@ var roleHauler = {
             if (targets.length > 0 && targets[0].structureType != STRUCTURE_STORAGE) {
                 target = creep.pos.findClosestByRange(targets);
 
-                console.log(target);
+                console.log(targets);
 
                 for (var priority of targets) { 
                     if (priority.structureType == STRUCTURE_TOWER && priority.store.getFreeCapacity(RESOURCE_ENERGY) > 199) {
