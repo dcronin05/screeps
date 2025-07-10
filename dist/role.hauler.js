@@ -57,7 +57,7 @@ var roleHauler = {
             }
             else if (targets.length > 0 && creep.memory.skill == 'storage') {
                 for (var priority of targets) {
-                    if (target.structureType == STRUCTURE_STORAGE) { target = priority; }
+                    if (target.structureType == STRUCTURE_STORAGE) { var target = priority; }
                 }
             }
             else if (targets.length == 1) {
