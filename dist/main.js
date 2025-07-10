@@ -77,7 +77,7 @@ module.exports.loop = function () {
                 {memory: {role: 'harvester'}})
         );
     }
-    else if(harvesters.length < 2) {
+    else if(harvesters.length < 3) {
         var newName = 'Harvester' + Game.time;
         if(Game.time % 20 == 0) {
             console.log('Spawning new harvester: ' + newName);
