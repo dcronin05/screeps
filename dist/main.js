@@ -11,23 +11,25 @@ module.exports.loop = function () {
         Game.rooms['E45N49'].controller.activateSafeMode();
     }
 
-    var tower = Game.getObjectById('685f42f9d9ec222e6c3f9ee1');
-    var tower = Game.getObjectById('687015f80e9a442c9d8beccf');
+    var towers = Game.getObjectById('685f42f9d9ec222e6c3f9ee1');
+    towers = towers.concat(Game.getObjectById('687015f80e9a442c9d8beccf'));
 
-    if(tower) {
-        var closestHostile = tower.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
-        var closestDamagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
-            filter: (structure) => (
-                (structure.hits < structure.hitsMax && structure.hits < 5001) ||
-                structure.hits < 1000 && structure.structureType == STRUCTURE_CONTAINER
-            )
-        });
-        
-        if(closestHostile) {
-            tower.attack(closestHostile);
-        }
-        else if(closestDamagedStructure) {
-            tower.repair(closestDamagedStructure);
+    if(towers.length > 0) {
+        for (var tower of towers) {
+            var closestHostile = tower.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
+            var closestDamagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
+                filter: (structure) => (
+                    (structure.hits < structure.hitsMax && structure.hits < 5001) ||
+                    structure.hits < 1000 && structure.structureType == STRUCTURE_CONTAINER
+                )
+            });
+
+            if(closestHostile) {
+                tower.attack(closestHostile);
+            }
+            else if(closestDamagedStructure) {
+                tower.repair(closestDamagedStructure);
+            }
         }
     }
     
