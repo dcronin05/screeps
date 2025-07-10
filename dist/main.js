@@ -57,16 +57,6 @@ module.exports.loop = function () {
         console.log('Haulers: ' + haulers.length)
     }
     
-    if(harvesters.length < 1) {
-        var newName = 'Harvester' + Game.time;
-        if(Game.time % 20 == 0) {
-            console.log('Spawning new harvester: ' + newName);
-        }
-        console.log('Harvester -- ' + 
-            Game.spawns['Spawn1'].spawnCreep([WORK,WORK,MOVE,MOVE], newName, 
-                {memory: {role: 'harvester'}})
-        );
-    }
     else if(haulers.length < 1) {
         var newName = 'Hauler' + Game.time;
         if(Game.time % 20 == 0) {
@@ -75,6 +65,16 @@ module.exports.loop = function () {
         console.log('Hauler -- ' + 
             Game.spawns['Spawn1'].spawnCreep([CARRY,CARRY,CARRY,MOVE,MOVE,MOVE], newName, 
                 {memory: {role: 'hauler'}})
+        );
+    }
+    if(harvesters.length < 1) {
+        var newName = 'Harvester' + Game.time;
+        if(Game.time % 20 == 0) {
+            console.log('Spawning new harvester: ' + newName);
+        }
+        console.log('Harvester -- ' +
+            Game.spawns['Spawn1'].spawnCreep([WORK,WORK,MOVE,MOVE], newName,
+                {memory: {role: 'harvester'}})
         );
     }
     else if(harvesters.length < 2) {
