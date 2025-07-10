@@ -82,7 +82,7 @@ module.exports.loop = function () {
         }
         console.log('Harvester -- ' +
             Game.spawns['Spawn1'].spawnCreep([WORK,WORK,WORK,WORK,WORK,WORK,WORK,WORK,MOVE], newName,
-                {memory: {role: 'harvester', skill: 'storage'}})
+                {memory: {role: 'harvester'}})
         );
     }
     else if(haulers.length < 2) {
@@ -92,7 +92,7 @@ module.exports.loop = function () {
         }
         console.log('Hauler -- ' +
             Game.spawns['Spawn1'].spawnCreep([CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE], newName,
-                {memory: {role: 'hauler'}})
+                {memory: {role: 'hauler', skill: 'storage'}})
         );
     }
     else if(haulers.length < 4) {
@@ -175,6 +175,7 @@ module.exports.loop = function () {
             roleRepairer.run(creep);
         }
         if(creep.memory.role == 'hauler') {
+            if(haulers.length < 2) { creep.memory.skill = ''; }
             roleHauler.run(creep);
         }
         // roleBuilder.run(creep);
