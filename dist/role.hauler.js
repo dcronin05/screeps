@@ -20,6 +20,7 @@ var roleHauler = {
 	    }
 
         if(!creep.memory.dying && creep.memory.hauling) {
+
             var targets = creep.room.find(FIND_STRUCTURES, {
                     filter: (structure) => {
                         return ((structure.structureType == STRUCTURE_TOWER ||
@@ -58,6 +59,7 @@ var roleHauler = {
                 for (var priority of targets) {
                     if (priority.structureType == STRUCTURE_STORAGE) { var target = priority; }
                 }
+                creep.say('🚚');
             }
             else if (targets.length == 1) {
                 console.log('targets.length == 1');
