@@ -63,6 +63,7 @@ var roleHauler = {
                     creep.moveTo(target, {visualizePathStyle: {stroke: '#7DDA58'}});
                     creep.say('🏪');
                     console.log('putting in storage')
+                }
             }
 //            else if (targets.length == 1) {
 //                console.log('targets.length == 1');
