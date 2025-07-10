@@ -43,7 +43,7 @@ var roleHauler = {
                 console.log(targets);
 
                 for (var priority of targets) { 
-                    if (priority.structureType == STRUCTURE_TOWER && priority.store.getFreeCapacity(RESOURCE_ENERGY) > 199) {
+                    if (priority.structureType == STRUCTURE_TOWER && priority.store.getFreeCapacity(RESOURCE_ENERGY) > 399) {
                         target = priority;
                         creep.say('🗼');
                     }
