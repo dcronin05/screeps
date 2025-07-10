@@ -55,22 +55,20 @@ var roleHauler = {
                     creep.say('🚚');
                 }
             }
-            else if (targets.length > 0 && creep.memory.skill == 'storage') {
-                console.log('true')
+            else if (targets.length == 1 || creep.memory.skill == 'storage') {
                 for (var priority of targets) {
                     if (priority.structureType == STRUCTURE_STORAGE) { var target = priority; }
                 }
-                creep.say('🚚');
-            }
-            else if (targets.length == 1) {
-                console.log('targets.length == 1');
-                target = creep.pos.findClosestByRange(targets);
                 if(creep.transfer(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(target, {visualizePathStyle: {stroke: '#7DDA58'}});
                     creep.say('🏪');
                     console.log('putting in storage')
-                }
             }
+//            else if (targets.length == 1) {
+//                console.log('targets.length == 1');
+//                target = creep.pos.findClosestByRange(targets);
+//                }
+//            }
         } 
         else if (!creep.memory.dying) {
             var energy = creep.room.find(FIND_DROPPED_RESOURCES, {
