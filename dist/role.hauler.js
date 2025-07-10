@@ -36,7 +36,7 @@ var roleHauler = {
             //     console.log(target.structureType + ' ' + target.id + ' ' + target.store.getFreeCapacity(RESOURCE_ENERGY) + ' ' + target.pos.x + 'x' + target.pos.y);
             // }
 
-            if (targets.length > 0 && targets[0].structureType != STRUCTURE_STORAGE) {
+            if (targets.length > 0 && creep.memory.skill != 'storage') {
                 target = creep.pos.findClosestByRange(targets);
 
                 console.log(targets);
@@ -47,15 +47,16 @@ var roleHauler = {
                         creep.say('🗼');
                     }
                     if (priority.structureType == STRUCTURE_SPAWN) { target = priority; }
-                    if (priority.structureType == STRUCTURE_STORAGE && creep.memory.skill == 'storage') {
-                        target = priority;
-                        creep.say('🏪');
-                    }
                 }
 
                 if(creep.transfer(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(target, {visualizePathStyle: {stroke: '#7DDA58'}});
                     creep.say('🚚');
+                }
+            }
+            else if (targets.length > 0 && creep.memory.skill == 'storage') {
+                for (var priority of targets) {
+                    if (target.structureType == STRUCTURE_STORAGE) { target = priority; }
                 }
             }
             else if (targets.length == 1) {
