@@ -11,8 +11,7 @@ module.exports.loop = function () {
         Game.rooms['E45N49'].controller.activateSafeMode();
     }
 
-    var towers = Game.getObjectById('685f42f9d9ec222e6c3f9ee1');
-    towers = towers.concat(Game.getObjectById('687015f80e9a442c9d8beccf'));
+    var towers = Game.rooms['E45N49'].find(FIND_MY_STRUCTURES, { filter: (tower) => {return tower.structureType == STRUCTURE_TOWER}});
 
     if(towers.length > 0) {
         for (var tower of towers) {
