@@ -87,20 +87,20 @@ module.exports.loop = function () {
                 {memory: {role: 'harvester'}})
         );
     }
-    else if(haulers.length < 2) {
-        var newName = 'Hauler' + Game.time;
+    else if(storage_haulers.length < 2) {
+        var newName = 'Storage' + Game.time;
         if(Game.time % 20 == 0) {
-            console.log('Spawning new hauler: ' + newName);
+            console.log('Spawning new storage hauler: ' + newName);
         }
-        console.log('Hauler -- ' +
-            Game.spawns['Spawn1'].spawnCreep([CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE], newName,
-                {memory: {role: 'hauler', skill: 'storage'}})
+        console.log('Storage Hauler -- ' +
+            Game.spawns['Spawn1'].spawnCreep([CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE], newName,
+                {memory: {role: 'storage_hauler', skill: 'storage'}})
         );
     }
     else if(haulers.length < 4) {
         var newName = 'Hauler' + Game.time;
         if(Game.time % 20 == 0) {
-            console.log('Spawning new storage hauler: ' + newName);
+            console.log('Spawning new hauler: ' + newName);
         }
         console.log('Hauler -- ' + 
             Game.spawns['Spawn1'].spawnCreep([CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE], newName,
@@ -177,8 +177,10 @@ module.exports.loop = function () {
             roleRepairer.run(creep);
         }
         if(creep.memory.role == 'hauler') {
-            if(haulers.length < 2) { creep.memory.skill = ''; }
             roleHauler.run(creep);
+        }
+        if(creep.memory.role == 'storage_hauler') {
+            roleStorageHauler.run(creep);
         }
         // roleBuilder.run(creep);
     }
