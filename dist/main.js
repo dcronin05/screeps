@@ -3,6 +3,7 @@ var roleUpgrader = require('role.upgrader');
 var roleBuilder = require('role.builder');
 var roleRepairer = require('role.repairer');
 var roleHauler = require('role.hauler');
+var roleStorageHauler = require('role.storage.hauler');
 
 module.exports.loop = function () {
 
@@ -46,6 +47,7 @@ module.exports.loop = function () {
     var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
     var repairers = _.filter(Game.creeps, (creep) => creep.memory.role == 'repairer');
     var haulers = _.filter(Game.creeps, (creep) => creep.memory.role == 'hauler');
+    var storage_haulers = _.filter(Game.creeps, (creep) => creep.memory.role == 'storage_hauler');
     
     console.log('Current CPU usage: ' + Game.cpu.getUsed());
 
