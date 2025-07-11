@@ -41,7 +41,6 @@ var roleStorageHauler = {
 
                 if(creep.transfer(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(target, {visualizePathStyle: {stroke: '#7DDA58'}});
-                    creep.say('🚚');
                 }
             }
         }
@@ -96,19 +95,16 @@ var roleStorageHauler = {
                     if (creep.withdraw(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                         creep.moveTo(target, {visualizePathStyle: {stroke: '#FFDE59'}});
                     }
-                    creep.say('🫙');
                 }
                 else if (target.store) {
                     if (creep.withdraw(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                         creep.moveTo(target, {visualizePathStyle: {stroke: '#FFDE59'}});
                     }
-                    creep.say('🛻');
                 }
                 else {
                     if (creep.pickup(target) == ERR_NOT_IN_RANGE) {
                         creep.moveTo(target, {visualizePathStyle: {stroke: '#FFDE59'}});
                     }
-                    creep.say('🫳')
                 }
             }
 

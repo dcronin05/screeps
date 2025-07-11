@@ -3,7 +3,8 @@ var roleRepairer = {
     /** @param {Creep} creep **/
     run: function(creep) {
 
-		
+        creep.say("🔧");
+        
 		if(creep.memory.repairing && creep.store[RESOURCE_ENERGY] == 0) {
 			creep.memory.repairing = false;
 	    }
@@ -27,7 +28,6 @@ var roleRepairer = {
 
 			if(targets.length > 0) {
 				var target = creep.pos.findClosestByRange(targets);
-				creep.say("🔧");
 				if(creep.repair(target) == ERR_NOT_IN_RANGE) {
 					creep.moveTo(target, {visualizePathStyle: {stroke: '#7DDA58'}});
 				}

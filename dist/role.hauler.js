@@ -2,6 +2,9 @@ var roleHauler = {
 
     /** @param {Creep} creep **/
     run: function(creep) {
+
+        creep.say('🚚');
+
         if (creep.ticksToLive > 1499 || Game.spawns['Spawn1'].store.getUsedCapacity(RESOURCE_ENERGY) < 300) { 
             creep.memory.dying = false; 
         }
@@ -45,14 +48,12 @@ var roleHauler = {
                 for (var priority of targets) { 
                     if (priority.structureType == STRUCTURE_TOWER && priority.store.getFreeCapacity(RESOURCE_ENERGY) > 399) {
                         target = priority;
-                        creep.say('🗼');
                     }
                     if (priority.structureType == STRUCTURE_SPAWN) { target = priority; }
                 }
 
                 if(creep.transfer(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(target, {visualizePathStyle: {stroke: '#7DDA58'}});
-                    creep.say('🚚');
                 }
             }
             else if (targets.length == 1 || creep.memory.skill == 'storage') {
@@ -61,8 +62,6 @@ var roleHauler = {
                 }
                 if(creep.transfer(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(target, {visualizePathStyle: {stroke: '#7DDA58'}});
-                    creep.say('🏪');
-                    console.log('putting in storage')
                 }
             }
 //            else if (targets.length == 1) {
@@ -122,19 +121,16 @@ var roleHauler = {
                     if (creep.withdraw(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                         creep.moveTo(target, {visualizePathStyle: {stroke: '#FFDE59'}});
                     }
-                    creep.say('🫙');
                 }
                 else if (target.store) {
                     if (creep.withdraw(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                         creep.moveTo(target, {visualizePathStyle: {stroke: '#FFDE59'}});
                     }
-                    creep.say('🛻');
                 }
                 else {
                     if (creep.pickup(target) == ERR_NOT_IN_RANGE) {
                         creep.moveTo(target, {visualizePathStyle: {stroke: '#FFDE59'}});
                     }
-                    creep.say('🫳')
                 }
             }
 

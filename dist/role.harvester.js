@@ -30,7 +30,7 @@ var roleHarvester = {
             }
         }
         else if (creep.memory.dying) {
-            creep.say('🏥')
+//            creep.say('🏥')
             if (creep.pos.getRangeTo(Game.spawns['Spawn1']) > 0) {
                 creep.moveTo(Game.spawns['Spawn1']);
                 console.log(creep.name + ' ' + creep.pos.getRangeTo(Game.spawns['Spawn1']) + ' away from spawn');
