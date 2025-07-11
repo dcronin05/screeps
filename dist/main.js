@@ -109,7 +109,7 @@ module.exports.loop = function () {
                 {memory: {role: 'hauler'}})
         );
     }
-    else if(repairers.length < 2) {
+    else if(repairers.length < 3) {
         var newName = 'Repairer' + Game.time;
         if(Game.time % 20 == 0) {
             console.log('Spawning new repairer: ' + newName);
