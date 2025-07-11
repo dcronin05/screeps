@@ -3,6 +3,8 @@ var roleHarvester = {
     /** @param {Creep} creep **/
     run: function(creep) {
 
+        creep.say('🪏')
+
         var sources = creep.room.find(FIND_SOURCES);
 
         if (creep.ticksToLive > 1499 || Game.spawns['Spawn1'].store.getUsedCapacity(RESOURCE_ENERGY) < 300) { 
