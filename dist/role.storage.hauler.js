@@ -2,6 +2,9 @@ var roleStorageHauler = {
 
     /** @param {Creep} creep **/
     run: function(creep) {
+
+        creep.say('⛟');
+
         if (creep.ticksToLive > 1499 || Game.spawns['Spawn1'].store.getUsedCapacity(RESOURCE_ENERGY) < 300) {
             creep.memory.dying = false;
         }
