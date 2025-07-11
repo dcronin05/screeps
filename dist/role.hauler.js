@@ -83,7 +83,7 @@ var roleHauler = {
             energy = energy.concat(creep.room.find(FIND_STRUCTURES, {
                 filter: (structure) => { return (
                     structure.structureType == STRUCTURE_CONTAINER && 
-                    structure.store[RESOURCE_ENERGY] > 0 &&
+                    structure.store[RESOURCE_ENERGY] > 100 &&
                     creep.moveTo(structure) != ERR_NO_PATH
                 )}
             }));
