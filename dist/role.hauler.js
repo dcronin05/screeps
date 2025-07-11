@@ -77,7 +77,7 @@ var roleHauler = {
                     e.pos.x != 1 &&
                     e.pos.x != 48 &&
                     e.pos.y != 48 &&
-                    e.amount > 149
+                    e.amount > 99
                 )}
             });
             
