@@ -34,8 +34,6 @@ var roleHauler = {
                     }
             });
             
-            console.log(targets)
-
             targets.sort((a,b) => a.store.getFreeCapacity(RESOURCE_ENERGY) - b.store.getFreeCapacity(RESOURCE_ENERGY));
 
             // for (var target of targets) {
