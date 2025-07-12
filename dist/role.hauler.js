@@ -24,7 +24,6 @@ var roleHauler = {
 
         if(!creep.memory.dying && creep.memory.hauling) {
 
-            console.log(creep.room.find(FIND_STRUCTURES))
 
             var targets = creep.room.find(FIND_STRUCTURES, {
                     filter: (structure) => {
@@ -36,6 +35,8 @@ var roleHauler = {
                             structure.store.getFreeCapacity(RESOURCE_ENERGY) > 0);
                     }
             });
+            
+            console.log(targets)
 
             targets.sort((a,b) => a.store.getFreeCapacity(RESOURCE_ENERGY) - b.store.getFreeCapacity(RESOURCE_ENERGY));
 
