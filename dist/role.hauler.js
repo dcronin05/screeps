@@ -24,20 +24,15 @@ var roleHauler = {
 
         if(!creep.memory.dying && creep.memory.hauling) {
 
-            var link = Game.getObjectById('6871b3af0e9a44c40d8c6cce');
-            if (link.store.getFreeCapacity(RESOURCE_ENERGY) > 0) {
-                var targets = link;
-            } else {
-                var targets = creep.room.find(FIND_STRUCTURES, {
-                        filter: (structure) => {
-                            return ((structure.structureType == STRUCTURE_TOWER ||
-                                structure.structureType == STRUCTURE_EXTENSION ||
-                                structure.structureType == STRUCTURE_SPAWN ||
-                                structure.structureType == STRUCTURE_STORAGE) &&
-                                structure.store.getFreeCapacity(RESOURCE_ENERGY) > 0);
-                        }
-                });
-            }
+            var targets = creep.room.find(FIND_STRUCTURES, {
+                    filter: (structure) => {
+                        return ((structure.structureType == STRUCTURE_TOWER ||
+                            structure.structureType == STRUCTURE_EXTENSION ||
+                            structure.structureType == STRUCTURE_SPAWN ||
+                            structure.structureType == STRUCTURE_STORAGE) &&
+                            structure.store.getFreeCapacity(RESOURCE_ENERGY) > 0);
+                    }
+            });
             
             console.log(targets)
 
@@ -52,7 +47,10 @@ var roleHauler = {
                             return (storage.structureType != STRUCTURE_STORAGE)
                         }});
 
-                for (var targ of targets) { if (targ.structureType == STRUCTURE_LINK) console.log(targ)}
+                var link = Game.getObjectById('6871b3af0e9a44c40d8c6cce');
+                if (link.store.getFreeCapacity(RESOURCE_ENERGY) > 0) {
+                    target = link;
+                }
 
                 for (var priority of targets) { 
                     if (priority.structureType == STRUCTURE_TOWER && priority.store.getFreeCapacity(RESOURCE_ENERGY) > 399) {
