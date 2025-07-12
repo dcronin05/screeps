@@ -31,7 +31,7 @@ var roleHauler = {
                             structure.structureType == STRUCTURE_EXTENSION ||
                             structure.structureType == STRUCTURE_SPAWN ||
                             structure.structureType == STRUCTURE_STORAGE ||
-                            structure.structureTYpe == STRUCTURE_LINK) &&
+                            structure.structureTYpe == 'link') &&
                             structure.store.getFreeCapacity(RESOURCE_ENERGY) > 0);
                     }
             });
