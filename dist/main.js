@@ -7,12 +7,19 @@ var roleStorageHauler = require('role.storage.hauler');
 
 module.exports.loop = function () {
 
+    var links = Game.rooms['E45N49'].find(FIND_MY_STRUCTURES, {
+        filter: (link) => { return link.structureType == STRUCTURE_LINK }
+    });
     var hostiles = Game.rooms['E45N49'].find(FIND_HOSTILE_CREEPS);
-    if (hostiles.length > 0) {
-        Game.rooms['E45N49'].controller.activateSafeMode();
-    }
+    if (hostiles.length > 0) { Game.rooms['E45N49'].controller.activateSafeMode(); }
+    var towers = Game.rooms['E45N49'].find(FIND_MY_STRUCTURES, {
+        filter: (tower) => {return tower.structureType == STRUCTURE_TOWER}
+    });
 
-    var towers = Game.rooms['E45N49'].find(FIND_MY_STRUCTURES, { filter: (tower) => {return tower.structureType == STRUCTURE_TOWER}});
+    if (links.length > 0 ) {
+        var link = Game.getObjectById('6871a35e0e9a4431168c6749');
+        link.transferEnergy(Game.getObjectById('6871b3af0e9a44c40d8c6cce'));
+    }
 
     if(towers.length > 0) {
         for (var tower of towers) {
