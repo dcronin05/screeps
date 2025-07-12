@@ -41,7 +41,9 @@ var roleHauler = {
             // }
 
             if (targets.length > 0 && creep.memory.skill != 'storage') {
-                target = creep.pos.findClosestByRange(targets);
+                target = creep.pos.findClosestByRange(targets, {filter: (storage) => {
+                            return (storage.structureType != STRUCTURE_STORAGE)
+                        }});
 
                 console.log(targets);
 
@@ -56,10 +58,9 @@ var roleHauler = {
                     creep.moveTo(target, {visualizePathStyle: {stroke: '#7DDA58'}});
                 }
             }
-            else if (targets.length == 1 || creep.memory.skill == 'storage') {
-                for (var priority of targets) {
-                    if (priority.structureType == STRUCTURE_STORAGE) { var target = priority; }
-                }
+            else if (targets.length == 1) {
+                target = creep.pos.findClosestByRange(targets);
+                
                 if(creep.transfer(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
                     creep.moveTo(target, {visualizePathStyle: {stroke: '#7DDA58'}});
                 }
