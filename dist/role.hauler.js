@@ -47,7 +47,7 @@ var roleHauler = {
                             return (storage.structureType != STRUCTURE_STORAGE)
                         }});
 
-                var link = Game.getObjectById('6871b3af0e9a44c40d8c6cce');
+                var link = Game.getObjectById('6871a35e0e9a4431168c6749');
                 if (link.store.getFreeCapacity(RESOURCE_ENERGY) > 0) {
                     target = link;
                 }
