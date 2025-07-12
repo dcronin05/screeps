@@ -24,14 +24,15 @@ var roleHauler = {
 
         if(!creep.memory.dying && creep.memory.hauling) {
 
-
+            if (creep.room.find(FIND_STRUCTURES, {filter: (e) => { return (e.structureType == 'link')}})) {
+                console.log('links!')
+            }
             var targets = creep.room.find(FIND_STRUCTURES, {
                     filter: (structure) => {
                         return ((structure.structureType == STRUCTURE_TOWER ||
                             structure.structureType == STRUCTURE_EXTENSION ||
                             structure.structureType == STRUCTURE_SPAWN ||
-                            structure.structureType == STRUCTURE_STORAGE ||
-                            structure.structureTYpe == 'link') &&
+                            structure.structureType == STRUCTURE_STORAGE) &&
                             structure.store.getFreeCapacity(RESOURCE_ENERGY) > 0);
                     }
             });
