@@ -46,6 +46,8 @@ var roleHauler = {
                             return (storage.structureType != STRUCTURE_STORAGE)
                         }});
 
+                for (var targ of targets) { if (targ.structureType == STRUCTURE_LINK) console.log(targ)}
+
                 console.log(targets);
 
                 for (var priority of targets) { 
