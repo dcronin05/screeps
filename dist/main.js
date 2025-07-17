@@ -32,7 +32,7 @@ module.exports.loop = function () {
             });
 
             if(closestHostile) {
-                tower.attack(closestHostile);
+                tower.attack(Game.getObjectById('68794657f9bf602001b64d06'));
             }
             else if(closestDamagedStructure) {
                 tower.repair(closestDamagedStructure);
