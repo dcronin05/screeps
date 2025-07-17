@@ -64,6 +64,8 @@ module.exports.loop = function () {
         console.log('Builders: ' + builders.length);
         console.log('Repairers: ' + repairers.length);
         console.log('Haulers: ' + haulers.length)
+        console.log('Storage Haulers: ' + storage_haulers.length);
+        console.log('Total creeps: ' + Game.creeps.length);
     }
     
     if(haulers.length < 1) {
