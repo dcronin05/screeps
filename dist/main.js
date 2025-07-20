@@ -138,7 +138,7 @@ module.exports.loop = function () {
                 {memory: {role: 'upgrader'}})
         );
     }
-    else if(builders.length < 1) {
+    else if(builders.length < 4) {
         var newName = 'Builder' + Game.time;
         if(Game.time % 20 == 0) {
             console.log('Spawning new builder: ' + newName);
@@ -148,7 +148,7 @@ module.exports.loop = function () {
                 {memory: {role: 'builder'}})
         );
     }
-    else if(upgraders.length < 2) {
+    else if(upgraders.length < 5) {
         var newName = 'Upgrader' + Game.time;
         if(Game.time % 20 == 0) {
             console.log('Spawning new upgrader: ' + newName);
