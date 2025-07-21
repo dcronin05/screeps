@@ -55,6 +55,7 @@ module.exports.loop = function () {
     var repairers = _.filter(Game.creeps, (creep) => creep.memory.role == 'repairer');
     var haulers = _.filter(Game.creeps, (creep) => creep.memory.role == 'hauler');
     var storage_haulers = _.filter(Game.creeps, (creep) => creep.memory.role == 'storage_hauler');
+    var total_creeps = _.filter(Game.creeps);
     
     console.log('Current CPU usage: ' + Game.cpu.getUsed());
 
@@ -65,7 +66,7 @@ module.exports.loop = function () {
         console.log('Repairers: ' + repairers.length);
         console.log('Haulers: ' + haulers.length)
         console.log('Storage Haulers: ' + storage_haulers.length);
-        console.log('Total creeps: ' + Game.creeps.size);
+        console.log('Total creeps: ' + total_creeps.length);
     }
     
     if(haulers.length < 1) {
