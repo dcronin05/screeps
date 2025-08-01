@@ -22,7 +22,8 @@ var roleBuilder = {
 						|| structure.structureType == STRUCTURE_WALL
                         || structure.structureType == STRUCTURE_TOWER
                         || structure.structureType == STRUCTURE_LINK
-						|| structure.structureType == STRUCTURE_LAB)
+						|| structure.structureType == STRUCTURE_LAB
+                        || structure.structureType == STRUCTURE_EXTRACTOR)
 						&& structure.progress <= 50000 )
 					}
 			});
